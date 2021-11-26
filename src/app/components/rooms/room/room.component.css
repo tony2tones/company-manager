@@ -3,6 +3,8 @@
   height: 132px;
   top: -817px;
   left: -2747px;
+  border-radius: 8px;
+  background: rgb(43, 88, 128);
   /* radius: 8px; */
   /* blend: Pass through; */
 }
