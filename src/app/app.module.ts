@@ -8,6 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OfficeModule } from './components/office-view.module';
 // import { RoomService } from './service.service';
 // import { RoomService } from './service/service.component';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,11 @@ import { OfficeModule } from './components/office-view.module';
     BrowserModule,
     AppRoutingModule,
     OfficeModule,
-    
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
   exports: [],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  // providers: [RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
