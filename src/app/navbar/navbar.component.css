@@ -1,6 +1,7 @@
 .navBar {
   color: #484954;
   padding-left: 3rem;
+  font-weight: bold;
 }
 
 .navBar > ul {
