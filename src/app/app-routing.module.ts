@@ -1,16 +1,16 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RoomComponent } from './components/rooms/room/room.component';
-import { RoomsComponent } from './components/rooms/rooms.component';
+import { OfficeComponent } from './components/rooms/room/office.component';
+import { OfficeViewComponent } from './components/rooms/office-view.component';
 
 
 const routes: Routes = [
-    { path: '', component: RoomsComponent },
-    { path: 'room', component: RoomsComponent },
-    { path: 'rooms/:roomId', component: RoomComponent },
+    { path: '', component: OfficeViewComponent },
+    { path: 'office-view', component: OfficeViewComponent },
+    { path: 'office-view/:roomId', component: OfficeComponent },
 ];
-
+ 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],

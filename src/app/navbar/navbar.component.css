@@ -1,0 +1,27 @@
+
+.navBar {
+    color: #484954;
+    display: flex;
+    padding-left: 3rem;
+    list-style: none;
+  }
+  
+  .navBar > li {
+    margin: 1rem;
+    padding-left: 24px;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 5.5px;
+    padding-top: 3px;
+    cursor: pointer;
+  }
+  .navBar > li:hover {
+    background: rgb(71, 71, 70);
+    color: ivory;
+  }
+  
+  .active {
+    background: ivory;
+    font-weight: 600;
+    color: rgb(31, 31, 39);
+  }
