@@ -4,7 +4,16 @@
   top: -817px;
   left: -2747px;
   border-radius: 8px;
-  background: rgb(43, 88, 128);
+  background: #ffffff;
+  border: solid 1px #e8f3fc;
   /* radius: 8px; */
   /* blend: Pass through; */
+}
+
+.name {
+  position: static;
+  width: 88px;
+  height: 29px;
+  left: 0px;
+  top: 0px;
 }
