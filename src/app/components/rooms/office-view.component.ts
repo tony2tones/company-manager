@@ -8,12 +8,13 @@ import { OfficeServices } from 'src/app/service.service';
   styleUrls: ['./office-view.component.css']
 })
 export class OfficeViewComponent implements OnInit {
-  public office: Office[] = [];
+  public offices: Office[] = [];
   constructor(private officeService: OfficeServices) { }
 
   getOffices() {
-    this.officeService.getOffices().subscribe((data) => {
-      console.log('this is it',data)
+    this.officeService.getOffices().subscribe((data:Office[]) => {
+      this.offices = data;
+      console.log('this is it',this.offices)
     })
   } 
   ngOnInit(): void {
