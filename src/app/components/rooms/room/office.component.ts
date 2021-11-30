@@ -14,12 +14,9 @@ export class OfficeComponent implements OnInit {
 
   @Input() email:string = '';
 
-
-  // @Input() officeCapacity:number = 0;
-
   @Input() address:string = '';
 
-  // @Input() staff:Array = [];
+  @Input() staff:[] = [];
 
   constructor() { }
 
