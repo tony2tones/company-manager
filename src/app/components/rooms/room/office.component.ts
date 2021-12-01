@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-office-room',
@@ -6,21 +7,27 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
-  @Input() companyName:string = '';
+  @Input() companyName: string = '';
 
-  @Input() officeCapacity:string = '';
+  @Input() officeCapacity: string = '';
 
-  @Input() phoneNumber:number = 0;
+  @Input() phoneNumber: number = 0;
 
-  @Input() email:string = '';
+  @Input() email: string = '';
 
-  @Input() address:string = '';
+  @Input() address: string = '';
 
-  @Input() staff:[] = [];
+  @Input() staff: [] = [];
 
-  constructor() { }
+  constructor(
+    private activeRoute: ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe((params) => {
+      console.log(params);
+    });
   }
-
+  public navButton(id){
+    this.router.navigate([])
+  }
 }
