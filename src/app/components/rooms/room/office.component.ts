@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
+  @Input() routePasser: string = '';
+
   @Input() companyName: string = '';
 
   @Input() officeCapacity: string = '';
