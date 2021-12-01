@@ -1,19 +1,15 @@
 .container {
   width: 342px;
-  height: 132px;
-  top: -817px;
-  left: -2747px;
+  height: auto;
+  margin:3rem;
   border-radius: 8px;
-  background: #ffffff;
   border: solid 1px #e8f3fc;
-  /* radius: 8px; */
-  /* blend: Pass through; */
+  
 }
-
+.content {
+  background: #ffffff;
+}
 .name {
-  position: static;
   width: 88px;
   height: 29px;
-  left: 0px;
-  top: 0px;
 }

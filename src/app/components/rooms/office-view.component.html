@@ -1,11 +1,11 @@
-<p>rooms works!</p>
+<h1>All Offices</h1>
 <div *ngFor="let office of offices">
 <app-office-room 
 [companyName]="office.companyName"
 [officeCapacity]="office.officeCapacity"
 [phoneNumber]="office.phoneNumber"
 [address]="office.address"
+[routePasser]="['/office-details', office.id]"
 ></app-office-room>
 
-    <!-- {{office.companyName}} -->
 </div>

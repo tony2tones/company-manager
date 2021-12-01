@@ -9,7 +9,7 @@ import { OfficeServices } from 'src/app/service.service';
 })
 export class OfficeViewComponent implements OnInit {
   public offices: Office[] = [];
-  constructor(private officeService: OfficeServices) { }
+  constructor(private officeService: OfficeServices ) { }
 
   getOffices() {
     this.officeService.getOffices().subscribe((data:Office[]) => {
@@ -19,6 +19,11 @@ export class OfficeViewComponent implements OnInit {
   } 
   ngOnInit(): void {
     this.getOffices();
+  }
+
+  navtoOfficeProfile(id:string){
+
+
   }
 
 }
