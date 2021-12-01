@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OfficeServices } from 'src/app/service.service';
 // import { EventEmitter } from 'stream';
 
@@ -10,9 +10,9 @@ import { OfficeServices } from 'src/app/service.service';
 })
 export class AddOfficeComponent implements OnInit {
   public officeProfileForm: FormGroup;
-  
+
   // eventEmitter = new EventEmitter<any>
-  constructor(private officeService: OfficeServices) { }
+  constructor(private officeService: OfficeServices, private formBuilder: FormBuilder) { }
 
 
   ngOnInit(): void {
@@ -21,18 +21,19 @@ export class AddOfficeComponent implements OnInit {
   }
 
   createFormGroup() {
-    this.officeProfileForm = new FormGroup({
-      companyName: new FormControl(''),
-      phoneNumber: new FormControl(''),
-      email: new FormControl(''),
-      officeCapacity: new FormControl(''),
-      address: new FormControl(''),
-      staff: new FormControl(''),
-    })
+    this.officeProfileForm = this.formBuilder.group({
+      companyName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      officeCapacity: ['', Validators.required],
+      address: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      staff: [''],
+    });
+    
   }
 
   public onSubmit() {
-
+    console.log('does this work? ', this.officeProfileForm.value);
   }
 
 }

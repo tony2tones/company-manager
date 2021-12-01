@@ -1,28 +1,28 @@
-<form formGroup="officeProfileForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="officeProfileForm"  (ngSubmit)="onSubmit()">
   <h1 id="officeProfile">Add an office</h1>
   <div class="form-group">
     <label for="">Company Name :</label>
-    <input type="text" class="form-control" formControlName="companyName" name="" value="">
+    <input type="text" class="form-control" formControlName="companyName" name="companyName" ngModel value="">
   </div>
   <div class="form-group">
     <label for="">Phone number :</label>
-    <input type="text" class="form-control" formControlName="phoneNumber"name="" value="">
+    <input type="text" class="form-control" formControlName="phoneNumber"name="phoneNumber" ngModel value="">
   </div>
   <div class="form-group">
     <label for="">Company email :</label>
-    <input type="text" class="form-control" formControlName="email" name="" value="">
+    <input type="text" class="form-control" formControlName="email" name="email" ngModel value="">
   </div>
   <div class="form-group">
     <label for="">Office Capacity :</label>
-    <input type="text" class="form-control" formControlName="officeCapacity" name="" value="">
+    <input type="text" class="form-control" formControlName="officeCapacity" name="officeCapacity" ngModel value="">
   </div>
   <div class="form-group">
     <label for="">Address :</label>
-    <input type="text" class="form-control" formControlName="address"name="" value="">
+    <input type="text" class="form-control" formControlName="address"name="address" ngModel value="">
   </div>
   <div class="form-group">
     <label for="">staff</label>
-    <input type="text" class="form-control" formControlName="staff"name="" value="">
+    <input type="text" class="form-control" formControlName="staff"name="staff" ngModel value="">
   </div>
 
 </form>
