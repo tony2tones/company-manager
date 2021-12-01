@@ -29,11 +29,17 @@ export class AddOfficeComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       staff: [''],
     });
-    
+
   }
 
   public onSubmit() {
     console.log('does this work? ', this.officeProfileForm.value);
+    if (this.officeProfileForm.valid) {
+      this.officeService.addOffice(this.officeProfileForm.value).subscribe((data) => {
+
+      }),
+        (err) => console.log(err);
+    }
   }
 
 }
