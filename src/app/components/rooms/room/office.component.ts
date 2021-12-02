@@ -21,6 +21,8 @@ export class OfficeComponent implements OnInit {
 
   @Input() staff: [] = [];
 
+  public menuToggle: boolean = false;
+
   constructor(
     private activeRoute: ActivatedRoute, private router : Router) { }
 
@@ -31,5 +33,9 @@ export class OfficeComponent implements OnInit {
   }
   public navButton(id){
     this.router.navigate([])
+  }
+
+  public toggleMenu() {
+    this.menuToggle = !this.menuToggle;
   }
 }
