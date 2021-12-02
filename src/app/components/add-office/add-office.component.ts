@@ -24,7 +24,7 @@ export class AddOfficeComponent implements OnInit {
     this.officeProfileForm = this.formBuilder.group({
       companyName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      officeCapacity: ['', Validators.required],
+      officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       staff: [''],
@@ -33,7 +33,6 @@ export class AddOfficeComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log('does this work? ', this.officeProfileForm.value);
     if (this.officeProfileForm.valid) {
       this.officeService.addOffice(this.officeProfileForm.value).subscribe((data) => {
 
