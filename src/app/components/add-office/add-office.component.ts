@@ -11,12 +11,9 @@ import { OfficeServices } from 'src/app/service.service';
 export class AddOfficeComponent implements OnInit {
   public officeProfileForm: FormGroup;
 
-  // eventEmitter = new EventEmitter<any>
   constructor(private officeService: OfficeServices, private formBuilder: FormBuilder) { }
 
-
   ngOnInit(): void {
-    // this.officeService.
     this.createFormGroup();
   }
 
