@@ -1,9 +1,21 @@
 <div class="container">
+  <h3>{{ companyName }}</h3>
   <div class="content">
-    <h1>{{ companyName }}</h1>
-    <p>{{ phoneNumber }}</p>
-    <p>{{ email }}</p>
-    <p>Office Capacity: {{ officeCapacity }}</p>
-    <p>{{ address }}</p>
+    <div>{{ staff.length }} Staff Members in Office</div>
+    <hr />
+    <div class="menuToggle" (click)="toggleMenu()">
+      More info
+      <span
+        ><img [ngClass]="{'rotateClass': menuToggle}"
+          src="../../../../assets/vuesax/twotone/vuesax/twotone/Vector.png"
+          alt="triangle with all three sides equal"
+      /></span>
+    </div>
+    <div *ngIf="menuToggle" class="list">
+      <p>{{ phoneNumber }}</p>
+      <p>{{ email }}</p>
+      <p>Office Capacity: {{ officeCapacity }}</p>
+      <p>{{ address }}</p>
+    </div>
   </div>
 </div>
