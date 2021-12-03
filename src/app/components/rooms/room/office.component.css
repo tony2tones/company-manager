@@ -1,17 +1,17 @@
 .container {
-  padding: 10px;
+  position: relative;
+  padding: 20px;
   width: 342px;
   font-family: sans-serif;
   height: auto;
-  margin:3rem;
+  margin: 3rem;
   border-radius: 8px;
   border: solid 1px #e8f3fc;
   background: #ffffff;
-  
 }
 .content {
   padding-top: 10px;
-  padding-left:15px;
+  padding-left: 15px;
 }
 .name {
   width: 88px;
@@ -26,4 +26,10 @@
 
 .rotateClass {
   transform: rotate(180deg);
+}
+
+.pen-edit {
+  position: absolute;
+  top: 10%;
+  left: 90%;
 }
