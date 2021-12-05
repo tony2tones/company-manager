@@ -1,25 +1,40 @@
 <div class="container">
-  <h3>{{ companyName }}</h3>
-  <div class="content">
-    <div>{{ staff.length }} Staff Members in Office</div>
-    <hr />
-    <div class="menuToggle" (click)="toggleMenu()">
-      More info
-      <span
-        ><img [ngClass]="{'rotateClass': menuToggle}"
-          src="../../../../assets/vuesax/twotone/vuesax/twotone/Vector.png"
-          alt="triangle with all three sides equal"
-      /></span>
-    </div>
-    <div *ngIf="menuToggle" class="list">
-      <p><img src="../../../../assets/Phone.png"/>{{ phoneNumber }}</p>
-      <p><img src="../../../../assets/Email.png"/>{{ email }}</p>
-      <p>Office Capacity: {{ officeCapacity }}</p>
-      <p>{{ address }}</p>
+  <div class="row">
+    <div class="color-banner"></div>
+    <div class="content">
+      <div class="content-row">
+        <div class="header">
+          <h3>{{ companyName }}</h3>
+        </div>
+        <div class="staff-current-count">
+          <div>
+            <img src="../../../../assets/people.png" alt="people" />{{
+              staff.length
+            }}
+            Staff Members in Office
+          </div>
+          <hr />
+        </div>
+        <div class="menuToggle" (click)="toggleMenu()">
+          More info
+          <span
+            ><img
+              [ngClass]="{ rotateClass: menuToggle }"
+              src="../../../../assets/vuesax/twotone/vuesax/twotone/Vector.png"
+              alt="triangle with all three sides equal"
+          /></span>
+        </div>
+        <div *ngIf="menuToggle" class="list">
+          <p><img src="../../../../assets/Phone.png" />{{ phoneNumber }}</p>
+          <p><img src="../../../../assets/Email.png" />{{ email }}</p>
+          <p>
+            <img src="../../../../assets/people.png" alt="people" />Office
+            Capacity: {{ officeCapacity }}
+          </p>
+          <p>{{ address }}</p>
+        </div>
+        <img class="pen-edit" src="../../../../assets/Union.png" alt="pen" />
+      </div>
     </div>
   </div>
-  <img class="pen-edit"
-          src="../../../../assets/Union.png"
-          alt="pen"
-      />
 </div>

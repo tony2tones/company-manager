@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  padding: 20px;
+  padding-left: 0px;
   width: 342px;
   font-family: sans-serif;
   height: auto;
@@ -9,10 +9,31 @@
   border: solid 1px #e8f3fc;
   background: #ffffff;
 }
-.content {
-  padding-top: 10px;
-  padding-left: 15px;
+.row {
+  display:flex;
 }
+
+.color-banner {
+  width: 1rem;
+  background-color: blue;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.content {
+  padding-top: 20px;
+  padding-left: 20px;
+  width:85%;
+
+}
+
+.staff-current-count {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.staff-current-count img {
+  
+}
+
 .name {
   width: 88px;
   height: 29px;
