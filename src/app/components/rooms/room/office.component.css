@@ -1,18 +1,47 @@
 .container {
-  padding: 10px;
+  position: relative;
+  padding-left: 0px;
   width: 342px;
   font-family: sans-serif;
   height: auto;
-  margin:3rem;
+  margin: 3rem;
   border-radius: 8px;
   border: solid 1px #e8f3fc;
   background: #ffffff;
-  
+}
+.row {
+  display:flex;
+}
+
+.color-banner {
+  width: 1rem;
+  background-color: blue;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .content {
-  padding-top: 10px;
-  padding-left:15px;
+  padding-top: 20px;
+  padding-left: 20px;
+  width:85%;
+
 }
+.count {
+  display: flex;
+  flex-direction: row;
+}
+
+.count p {
+  line-height: 33px;
+}
+.staff-current-count {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.staff-current-count img {
+  padding: 5px;
+  
+}
+
 .name {
   width: 88px;
   height: 29px;
@@ -26,4 +55,10 @@
 
 .rotateClass {
   transform: rotate(180deg);
+}
+
+.pen-edit {
+  position: absolute;
+  top: 10%;
+  left: 90%;
 }
