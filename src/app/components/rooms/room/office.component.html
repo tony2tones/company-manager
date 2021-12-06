@@ -28,10 +28,15 @@
           <p>
             <img src="../../../../assets/people.png" alt="people" />Office
             Capacity: {{ officeCapacity }}
+
+            {{ officeId }}
           </p>
-          <img src="../../../../assets/local.png" alt="location" /><p>{{ address }}</p>
+          <img src="../../../../assets/local.png" alt="location" />
+          <p>{{ address }}</p>
         </div>
-        <img class="pen-edit" src="../../../../assets/Union.png" alt="pen" />
+        <div class="pen-edit" (click)="editOffice($event)">
+          <img class="" src="../../../../assets/Union.png" alt="pen" />
+        </div>
       </div>
     </div>
   </div>
