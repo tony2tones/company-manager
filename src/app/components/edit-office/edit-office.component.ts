@@ -1,0 +1,42 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { OfficeServices } from 'src/app/service.service';
+// import { EventEmitter } from 'stream';
+
+@Component({
+  selector: 'app-edit-office',
+  templateUrl: './edit-office.component.html',
+  styleUrls: ['./edit-office.component.css']
+})
+export class EditOfficeComponent implements OnInit {
+  public officeProfileForm: FormGroup;
+
+  constructor(private officeService: OfficeServices, private formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.createFormGroup();
+  }
+
+  createFormGroup() {
+    this.officeProfileForm = this.formBuilder.group({
+      companyName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      officeCapacity: [0, Validators.required],
+      address: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      color: [],
+      staff: [''],
+    });
+
+  }
+
+  public onSubmit() {
+    if (this.officeProfileForm.valid) {
+      this.officeService.addOffice(this.officeProfileForm.value).subscribe((data) => {
+
+      }),
+        (err) => console.log(err);
+    }
+  }
+
+}
