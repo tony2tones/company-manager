@@ -62,3 +62,7 @@
   top: 10%;
   left: 90%;
 }
+
+.pen-edit:hover{
+  cursor: pointer;
+}

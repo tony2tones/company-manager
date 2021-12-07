@@ -20,7 +20,6 @@
     <label for=""></label>
     <input type="number" class="form-control" formControlName="officeCapacity" name="officeCapacity" ngModel placeholder="Maximum Capacity" value="">
   </div>
-  {{editOfficeProfileForm | json }}
   <div class="form-group ">
     <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
     <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">DELETE OFFICE</button>

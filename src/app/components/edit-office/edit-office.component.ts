@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Office } from 'src/app/modals/office.modal';
 import { OfficeServices } from 'src/app/service.service';
 // import { EventEmitter } from 'stream';
@@ -15,7 +15,12 @@ export class EditOfficeComponent implements OnInit {
   public officeId: string;
   selectedOffice: Office;
 
-  constructor(private officeService: OfficeServices, private formBuilder: FormBuilder, private activeRoute: ActivatedRoute) { }
+  constructor(
+    private officeService: OfficeServices,
+    private formBuilder: FormBuilder,
+    private activeRoute: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((room) => {
@@ -54,21 +59,24 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public editOffice(office:Office){
-    console.log('what is here ? ',  office);
-    // this.editOfficeProfileForm.patchValue({
-    //   companyName: office.companyName,
-    //   phoneNumber: office.phoneNumber,
-    //   officeCapacity: office.officeCapacity,
-    //   address: office.address,
-    //   email: office.email,
-    // })
+    const editOffice = office[0];
+    this.editOfficeProfileForm.patchValue({
+      companyName: editOffice.companyName,
+      phoneNumber: editOffice.phoneNumber,
+      officeCapacity: editOffice.officeCapacity,
+      address: editOffice.address,
+      email: editOffice.email,
+    })
     // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
   }
 
+  
+
   public onSubmit() {
     if (this.editOfficeProfileForm.valid) {
-      this.officeService.addOffice(this.editOfficeProfileForm.value).subscribe((data) => {
-
+      this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
+        console.log('speak to me ',data);
+        this.router.navigate(['/']);
       }),
         (err) => console.log(err);
     }
