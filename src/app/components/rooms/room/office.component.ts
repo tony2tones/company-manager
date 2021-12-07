@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class OfficeComponent implements OnInit {
   @Input() routePasser: string = '';
 
+  @Input() officeId: string = '';
+
   @Input() companyName: string = '';
 
   @Input() officeCapacity: string = '';
@@ -32,7 +34,13 @@ export class OfficeComponent implements OnInit {
     });
   }
   public navButton(id){
-    this.router.navigate([])
+    this.router.navigate([''])
+  }
+
+  public editOffice($event) {
+    console.log(' this has been clicked ');
+    console.log($event, this.officeId);
+    this.router.navigate([`office-view/edit-office/${this.officeId}`]);
   }
 
   public toggleMenu() {

@@ -1,0 +1,27 @@
+<form [formGroup]="editOfficeProfileForm"  (ngSubmit)="onSubmit()">
+  <h1 id="officeProfile">Edit office</h1>
+  <div class="form-group">
+    <label for=""></label>
+    <input type="text" class="form-control" formControlName="companyName" name="companyName" ngModel placeholder="Office Name" value="companyName">
+  </div>
+  <div class="form-group">
+    <label for=""></label>
+    <input type="text" class="form-control" formControlName="address"name="address" ngModel placeholder="Physical Address" value="editOfficeProfileForm.address">
+  </div>
+  <div class="form-group">
+    <label for=""></label>
+    <input type="text" class="form-control" formControlName="email" name="email" ngModel placeholder="Email Address" value="">
+  </div>
+  <div class="form-group">
+    <label for=""></label>
+    <input type="text" class="form-control" formControlName="phoneNumber"name="staff" ngModel placeholder="Phone Number" value="">
+  </div>
+  <div class="form-group">
+    <label for=""></label>
+    <input type="number" class="form-control" formControlName="officeCapacity" name="officeCapacity" ngModel placeholder="Maximum Capacity" value="">
+  </div>
+  <div class="form-group ">
+    <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
+    <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">DELETE OFFICE</button>
+</div>
+</form>
