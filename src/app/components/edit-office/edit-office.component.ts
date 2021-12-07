@@ -70,7 +70,14 @@ export class EditOfficeComponent implements OnInit {
     // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
   }
 
-  
+  public deleteOffice() {
+    this.officeService.deleteOffice(this.officeId).subscribe((data) => {
+      console.log('resonse', data);
+    }),
+    (error) => {
+      console.log(error)
+    }
+  }
 
   public onSubmit() {
     if (this.editOfficeProfileForm.valid) {
