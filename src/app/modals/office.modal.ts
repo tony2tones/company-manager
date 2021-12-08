@@ -6,4 +6,5 @@ export class Office {
     officeCapacity: number;
     address: string;
     staff: [{}];
+    colourScheme: string;
 }

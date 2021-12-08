@@ -13,6 +13,7 @@ import { OfficeServices } from 'src/app/service.service';
 export class EditOfficeComponent implements OnInit {
   public editOfficeProfileForm: FormGroup;
   public officeId: string;
+  public colourHash: string;
   selectedOffice: Office;
 
   constructor(
@@ -20,20 +21,20 @@ export class EditOfficeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((room) => {
       const id = room.roomId;
       this.officeId = id;
-      if(this.officeId){
-        console.log('this roomId' , this.officeId);
+      if (this.officeId) {
+        console.log('this roomId', this.officeId);
         this.getOfficeInfo();
       }
     }),
-    () => {
+      () => {
 
-    }
+      }
     this.createFormGroup();
   }
 
@@ -44,21 +45,31 @@ export class EditOfficeComponent implements OnInit {
       officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      colourScheme: [''],
       staff: [''],
     });
 
   }
 
+  public colourSelected(colour) {
+    this.colourHash = colour;
+    console.log('details', this.colourHash);
+    this.editOfficeProfileForm.patchValue({
+      colourScheme: colour
+    });
+    console.log('details', this.editOfficeProfileForm);
+  }
+
   public getOfficeInfo(): void {
     this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
       this.editOffice(formData);
-      // this.editOfficeProfileForm = formData.value;
       console.log('this should be one office ', this.editOfficeProfileForm);
 
     })
   }
 
-  public editOffice(office:Office){
+  public editOffice(office: Office) {
+    console.log(office);
     const editOffice = office[0];
     this.editOfficeProfileForm.patchValue({
       companyName: editOffice.companyName,
@@ -66,7 +77,9 @@ export class EditOfficeComponent implements OnInit {
       officeCapacity: editOffice.officeCapacity,
       address: editOffice.address,
       email: editOffice.email,
+      colourScheme: editOffice.colourScheme 
     })
+    // this.onSubmit();
     // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
   }
 
@@ -74,15 +87,16 @@ export class EditOfficeComponent implements OnInit {
     this.officeService.deleteOffice(this.officeId).subscribe((data) => {
       console.log('resonse', data);
     }),
-    (error) => {
-      console.log(error)
-    }
+      (error) => {
+        console.log(error)
+      }
   }
 
   public onSubmit() {
+console.log(this.editOfficeProfileForm)
     if (this.editOfficeProfileForm.valid) {
       this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
-        console.log('speak to me ',data);
+        console.log('speak to me ', data);
         this.router.navigate(['/']);
       }),
         (err) => console.log(err);
