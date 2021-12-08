@@ -24,12 +24,21 @@ export class AddOfficeComponent implements OnInit {
       officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      colourScheme: [''],
       staff: [''],
     });
 
   }
 
+  public colourSelected(colour: string) {
+    this.officeProfileForm.patchValue({
+      colourScheme: colour
+    });
+  }
+  
   public onSubmit() {
+    console.log('details', this.officeProfileForm);
+
     if (this.officeProfileForm.valid) {
       this.officeService.addOffice(this.officeProfileForm.value).subscribe((data) => {
 

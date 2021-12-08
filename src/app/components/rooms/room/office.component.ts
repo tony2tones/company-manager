@@ -14,7 +14,9 @@ export class OfficeComponent implements OnInit {
   @Input() companyName: string = '';
 
   @Input() officeCapacity: string = '';
-
+  
+  @Input() colourScheme: string = '';
+  
   @Input() phoneNumber: number = 0;
 
   @Input() email: string = '';
