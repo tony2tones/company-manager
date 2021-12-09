@@ -17,7 +17,7 @@ export class OfficeProfileComponent implements OnInit {
 
   public staff: [] = [];
 
-  public menuToggle: boolean = false;
+  public menuToggle: boolean = true;
 
   constructor(
     private officeService: OfficeServices,
