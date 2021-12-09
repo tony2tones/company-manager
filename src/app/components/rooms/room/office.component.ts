@@ -25,7 +25,7 @@ export class OfficeComponent implements OnInit {
 
   @Input() staff: [] = [];
 
-  public menuToggle: boolean = false;
+  @Input() menuToggle: boolean = false;
 
   constructor(
     private activeRoute: ActivatedRoute, private router : Router) { }
@@ -35,8 +35,8 @@ export class OfficeComponent implements OnInit {
       console.log(params);
     });
   }
-  public navButton(id){
-    this.router.navigate([''])
+  public navButton(){
+    this.router.navigate([`office-view/${this.officeId}`]);
   }
 
   public editOffice($event) {

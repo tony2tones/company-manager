@@ -1,12 +1,14 @@
 <h1>All Offices</h1>
-<div *ngFor="let office of offices">
-<app-office-room 
-[companyName]="office.companyName"
-[officeCapacity]="office.officeCapacity"
-[phoneNumber]="office.phoneNumber"
-[address]="office.address"
-[colourScheme]="office.colourScheme"
-[email]="office.email"
-[officeId]="office._id"
-></app-office-room>
+<div class="container">
+  <div *ngFor="let office of offices">
+    <app-office-room
+      [companyName]="office.companyName"
+      [officeCapacity]="office.officeCapacity"
+      [phoneNumber]="office.phoneNumber"
+      [address]="office.address"
+      [colourScheme]="office.colourScheme"
+      [email]="office.email"
+      [officeId]="office._id"
+    ></app-office-room>
+  </div>
 </div>

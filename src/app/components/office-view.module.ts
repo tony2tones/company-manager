@@ -8,13 +8,15 @@ import { OfficeViewComponent } from './rooms/office-view.component';
 import { OfficeComponent } from './rooms/room/office.component';
 import { AddOfficeComponent } from './add-office/add-office.component';
 import { EditOfficeComponent } from './edit-office/edit-office.component';
+import { OfficeProfileComponent } from './office-profile/office-profile.component';
 
 @NgModule({
   declarations: [
     OfficeViewComponent,
     OfficeComponent,
     AddOfficeComponent,
-    EditOfficeComponent
+    EditOfficeComponent,
+    OfficeProfileComponent
   ],
   imports: [
     BrowserModule,
