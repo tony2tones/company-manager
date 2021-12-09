@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { Office } from 'src/app/modals/office.modal';
+import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
 // import { EventEmitter } from 'stream';
 
@@ -14,6 +16,7 @@ export class EditOfficeComponent implements OnInit {
   public editOfficeProfileForm: FormGroup;
   public officeId: string;
   public colourHash: string;
+  public staff:User[] = [];
   selectedOffice: Office;
 
   constructor(
@@ -46,10 +49,23 @@ export class EditOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: [''],
+      staff: this.staff,
+    });
+  }
+
+  public addUser() {
+    const userForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      avatar: [''],
     });
 
+    this.staff.push(userForm.value);
   }
+
+  deleteUser(lessonIndex: number) {
+    // this.staff.removeAt(lessonIndex);
+}
 
   public colourSelected(colour) {
     this.colourHash = colour;
@@ -64,7 +80,6 @@ export class EditOfficeComponent implements OnInit {
     this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
       this.editOffice(formData);
       console.log('this should be one office ', this.editOfficeProfileForm);
-
     })
   }
 
@@ -77,7 +92,7 @@ export class EditOfficeComponent implements OnInit {
       officeCapacity: editOffice.officeCapacity,
       address: editOffice.address,
       email: editOffice.email,
-      colourScheme: editOffice.colourScheme 
+      colourScheme: editOffice.colourScheme,
     })
     // this.onSubmit();
     // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
