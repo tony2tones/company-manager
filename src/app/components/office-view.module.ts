@@ -10,6 +10,7 @@ import { OfficeComponent } from './rooms/room/office.component';
 import { AddOfficeComponent } from './add-office/add-office.component';
 import { EditOfficeComponent } from './edit-office/edit-office.component';
 import { OfficeProfileComponent } from './office-profile/office-profile.component';
+import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { OfficeProfileComponent } from './office-profile/office-profile.componen
     OfficeComponent,
     AddOfficeComponent,
     EditOfficeComponent,
-    OfficeProfileComponent
+    OfficeProfileComponent,
+    GenericModalComponent
   ],
   imports: [
     BrowserModule,

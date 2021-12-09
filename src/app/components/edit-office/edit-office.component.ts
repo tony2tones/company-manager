@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { Office } from 'src/app/modals/office.modal';
 import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
-// import { EventEmitter } from 'stream';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { GenericModalComponent } from '../modals/generic-modal/generic-modal.component';
+
 
 @Component({
   selector: 'app-edit-office',
@@ -23,7 +24,8 @@ export class EditOfficeComponent implements OnInit {
     private officeService: OfficeServices,
     private formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -54,13 +56,17 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public addUser() {
-    const userForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      avatar: [''],
-    });
+    const modalReff = this.modalService.open(GenericModalComponent, {size: 'sm'});
+    const componentInstance = modalReff.componentInstance as GenericModalComponent;
 
-    this.staff.push(userForm.value);
+    componentInstance.title = 'Add User';
+    // const userForm = this.formBuilder.group({
+    //   firstName: ['', Validators.required],
+    //   lastName: ['', Validators.required],
+    //   avatar: [''],
+    // });
+
+    // this.staff.push(userForm.value);
   }
 
   deleteUser(lessonIndex: number) {
