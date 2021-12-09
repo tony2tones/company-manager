@@ -26,16 +26,18 @@
           /></span>
         </div>
         <div *ngIf="menuToggle" class="list">
-          <p><img src="../../../../assets/Phone.png" />{{ phoneNumber }}</p>
-          <p><img src="../../../../assets/Email.png" />{{ email }}</p>
-          <p>
-            <img src="../../../../assets/people.png" alt="people" />Office
-            Capacity: {{ officeCapacity }}
-
-            {{ officeId }}
-          </p>
-          <img src="../../../../assets/local.png" alt="location" />
-          <p>{{ address }}</p>
+          <div class="more-info">
+          <div class="info-row"><img class="icons" src="../../../../assets/phone.png" /><p>{{ phoneNumber }}</p></div>
+          <div class="info-row"><img class="icons" src="../../../../assets/Email.png" /><p>{{ email }}</p></div>
+          <div class="info-row">
+            <img class="icons" src="../../../../assets/people.png" alt="people" />
+            <span>Office capacity: {{ officeCapacity }}</span>
+          </div>
+          <div class="info-row">
+            <img class="icons" src="../../../../assets/local.png" alt="location" />
+            <p>{{ address }}</p>
+          </div>
+        </div>
         </div>
         <div class="pen-edit" (click)="editOffice($event)">
           <img class="" src="../../../../assets/Union.png" alt="pen" />
