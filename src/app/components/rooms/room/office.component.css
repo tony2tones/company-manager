@@ -13,9 +13,21 @@
   display:flex;
 }
 
+.icons {
+  margin:10px;
+}
+
+.info-row {
+  display: flex;
+  line-height: 45px;
+}
+
+.more-info {
+  margin: 10px;
+}
+
 .colour-banner {
   width: 1rem;
-  /* background-color: blue; */
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
@@ -68,15 +80,14 @@
 }
 
 .count p {
-  line-height: 33px;
+  line-height: 45px;
 }
 .staff-current-count {
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .staff-current-count img {
-  padding: 5px;
-  
+  padding: 10px;
 }
 
 .name {
