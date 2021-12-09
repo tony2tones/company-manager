@@ -1,49 +1,10 @@
-<div class="container">
-    <div class="row">
-      <div
-        class="colour-banner colour-banner-{{ colourScheme }}"
-        [style.background-color]="colourScheme"
-      ></div>
-      <div class="content">
-        <div class="content-row">
-          <div class="header" (click)="navButton()">
-            <h3>{{ companyName }}</h3>
-          </div>
-          <div class="staff-current-count">
-            <div class="count">
-              <img src="../../../../assets/people.png" alt="people" />
-              <p>{{ staff.length }} Staff Members in Office</p>
-            </div>
-            <hr />
-          </div>
-          <div class="menuToggle" (click)="toggleMenu()">
-            More info
-            <span
-              ><img
-                [ngClass]="{ rotateClass: menuToggle }"
-                src="../../../../assets/vuesax/twotone/vuesax/twotone/Vector.png"
-                alt="triangle with all three sides equal"
-            /></span>
-          </div>
-          <div *ngIf="menuToggle" class="list">
-            <div class="more-info">
-            <div class="info-row"><img class="icons" src="../../../../assets/phone.png" /><p>{{ phoneNumber }}</p></div>
-            <div class="info-row"><img class="icons" src="../../../../assets/Email.png" /><p>{{ email }}</p></div>
-            <div class="info-row">
-              <img style="color: #0D4477" class="icons" src="../../../../assets/people.png" alt="people" />
-              <span>Office capacity: {{ officeCapacity }}</span>
-            </div>
-            <div class="info-row">
-              <img class="icons" src="../../../../assets/local.png" alt="location" />
-              <p>{{ address }}</p>
-            </div>
-          </div>
-          </div>
-          <div class="pen-edit" (click)="editOffice($event)">
-            <img class="" src="../../../../assets/Union.png" alt="pen" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+<app-office-room
+[companyName]="office.companyName"
+[officeCapacity]="office.officeCapacity"
+[phoneNumber]="office.phoneNumber"
+[address]="office.address"
+[colourScheme]="office.colourScheme"
+[email]="office.email"
+[officeId]="office._id"
+[menuToggle]="true"
+></app-office-room>

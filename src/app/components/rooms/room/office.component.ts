@@ -25,7 +25,7 @@ export class OfficeComponent implements OnInit {
 
   @Input() staff: [] = [];
 
-  public menuToggle: boolean = false;
+  @Input() menuToggle: boolean = false;
 
   constructor(
     private activeRoute: ActivatedRoute, private router : Router) { }

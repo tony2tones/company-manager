@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Office } from 'src/app/modals/office.modal';
+import { OfficeServices } from 'src/app/service.service';
 
 @Component({
   selector: 'app-office-profile',
@@ -11,29 +13,28 @@ export class OfficeProfileComponent implements OnInit {
 
   public officeId: string = '';
 
-  public companyName: string = '';
-
-  public officeCapacity: string = '';
-  
-  public colourScheme: string = '';
-  
-  public phoneNumber: number = 0;
-
-  public email: string = '';
-
-  public address: string = '';
+  public office: Office;
 
   public staff: [] = [];
 
   public menuToggle: boolean = false;
 
   constructor(
+    private officeService: OfficeServices,
     private activeRoute: ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe((params) => {
-      console.log(params);
-    });
+    this.activeRoute.params.subscribe((room) => {
+      const id = room.roomId;
+      this.officeId = id;
+      if (this.officeId) {
+        console.log('this roomId', this.officeId);
+        this.getOfficeInfo();
+      }
+    }),
+      () => {
+
+      }
   }
   public navButton(){
     this.router.navigate([`office-view/${this.officeId}`]);
@@ -45,6 +46,15 @@ export class OfficeProfileComponent implements OnInit {
     this.router.navigate([`office-view/edit-office/${this.officeId}`]);
   }
 
+  public getOfficeInfo(): void {
+    this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
+      console.log(formData);
+      this.office = formData[0];
+      // this.editOffice(formData);
+      // console.log('this should be one office ', this.editOfficeProfileForm);
+
+    })
+  }
   public getOfficebyId() {
     
   }
