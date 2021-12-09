@@ -2,28 +2,28 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-office-room',
-  templateUrl: './office.component.html',
-  styleUrls: ['./office.component.css']
+  selector: 'app-office-profile',
+  templateUrl: './office-profile.component.html',
+  styleUrls: ['./office-profile.component.css']
 })
-export class OfficeComponent implements OnInit {
-  @Input() routePasser: string = '';
+export class OfficeProfileComponent implements OnInit {
+  public routePasser: string = '';
 
-  @Input() officeId: string = '';
+  public officeId: string = '';
 
-  @Input() companyName: string = '';
+  public companyName: string = '';
 
-  @Input() officeCapacity: string = '';
+  public officeCapacity: string = '';
   
-  @Input() colourScheme: string = '';
+  public colourScheme: string = '';
   
-  @Input() phoneNumber: number = 0;
+  public phoneNumber: number = 0;
 
-  @Input() email: string = '';
+  public email: string = '';
 
-  @Input() address: string = '';
+  public address: string = '';
 
-  @Input() staff: [] = [];
+  public staff: [] = [];
 
   public menuToggle: boolean = false;
 
@@ -45,7 +45,12 @@ export class OfficeComponent implements OnInit {
     this.router.navigate([`office-view/edit-office/${this.officeId}`]);
   }
 
+  public getOfficebyId() {
+    
+  }
+
   public toggleMenu() {
     this.menuToggle = !this.menuToggle;
   }
 }
+

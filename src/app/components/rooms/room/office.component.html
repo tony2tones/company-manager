@@ -6,7 +6,7 @@
     ></div>
     <div class="content">
       <div class="content-row">
-        <div class="header">
+        <div class="header" (click)="navButton()">
           <h3>{{ companyName }}</h3>
         </div>
         <div class="staff-current-count">
@@ -30,7 +30,7 @@
           <div class="info-row"><img class="icons" src="../../../../assets/phone.png" /><p>{{ phoneNumber }}</p></div>
           <div class="info-row"><img class="icons" src="../../../../assets/Email.png" /><p>{{ email }}</p></div>
           <div class="info-row">
-            <img class="icons" src="../../../../assets/people.png" alt="people" />
+            <img style="color: #0D4477" class="icons" src="../../../../assets/people.png" alt="people" />
             <span>Office capacity: {{ officeCapacity }}</span>
           </div>
           <div class="info-row">
