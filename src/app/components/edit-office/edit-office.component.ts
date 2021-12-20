@@ -17,7 +17,7 @@ export class EditOfficeComponent implements OnInit {
   public editOfficeProfileForm: FormGroup;
   public officeId: string;
   public colourHash: string;
-  public staff:User[] = [];
+  public staff:FormGroup;
   selectedOffice: Office;
 
   constructor(
@@ -33,7 +33,6 @@ export class EditOfficeComponent implements OnInit {
       const id = room.roomId;
       this.officeId = id;
       if (this.officeId) {
-        console.log('this roomId', this.officeId);
         this.getOfficeInfo();
       }
     }),
@@ -51,15 +50,19 @@ export class EditOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: this.staff,
     });
+    this.staff = this.formBuilder.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        avatar: [''],
+      });
   }
 
   public addUser() {
-    const modalReff = this.modalService.open(GenericModalComponent, {size: 'sm'});
-    const componentInstance = modalReff.componentInstance as GenericModalComponent;
+  //   const modalReff = this.modalService.open(GenericModalComponent, {size: 'sm'});
+  //   const componentInstance = modalReff.componentInstance as GenericModalComponent;
 
-    componentInstance.title = 'Add User';
+  //   componentInstance.title = 'Add User';
     // const userForm = this.formBuilder.group({
     //   firstName: ['', Validators.required],
     //   lastName: ['', Validators.required],
@@ -75,22 +78,23 @@ export class EditOfficeComponent implements OnInit {
 
   public colourSelected(colour) {
     this.colourHash = colour;
-    console.log('details', this.colourHash);
     this.editOfficeProfileForm.patchValue({
       colourScheme: colour
     });
-    console.log('details', this.editOfficeProfileForm);
+    console.log('details', this.colourHash);
   }
 
   public getOfficeInfo(): void {
     this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
       this.editOffice(formData);
-      console.log('this should be one office ', this.editOfficeProfileForm);
+      this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
+      console.log('this should be one office ', this.colourHash);
     })
   }
 
   public editOffice(office: Office) {
-    console.log(office);
+    // console.log(office);
+    this.colourHash = office.colourScheme;
     const editOffice = office[0];
     this.editOfficeProfileForm.patchValue({
       companyName: editOffice.companyName,
@@ -100,6 +104,7 @@ export class EditOfficeComponent implements OnInit {
       email: editOffice.email,
       colourScheme: editOffice.colourScheme,
     })
+    console.log('TARGET ', this.colourHash);
     // this.onSubmit();
     // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
   }

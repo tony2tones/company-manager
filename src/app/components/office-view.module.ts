@@ -11,6 +11,7 @@ import { AddOfficeComponent } from './add-office/add-office.component';
 import { EditOfficeComponent } from './edit-office/edit-office.component';
 import { OfficeProfileComponent } from './office-profile/office-profile.component';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
+import { UserlistComponent } from './users/userlist/userlist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GenericModalComponent } from './modals/generic-modal/generic-modal.comp
     AddOfficeComponent,
     EditOfficeComponent,
     OfficeProfileComponent,
-    GenericModalComponent
+    GenericModalComponent,
+    UserlistComponent
   ],
   imports: [
     BrowserModule,

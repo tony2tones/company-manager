@@ -14,12 +14,17 @@ form {
 }
 
 .form-group {
+  margin: 0px;
   text-align: center;
-  /* width: 340px;
-  height: 48px;
-  border-radius: 8px;
-  padding: 12px, 16px, 12px, 16px; */
-  /* background: #FFFFFF; */
+}
+
+.staff-container {
+  text-align: center;
+
+}
+.colour-title {
+  padding: 5px;
+  text-align: center;
 }
 
 .form-control {
@@ -62,8 +67,12 @@ button:disabled {
   border-radius: 13px;
 }
 
-.dot.active {
-  border-radius: 2px solid black !important;
+.dot:hover{
+  cursor: pointer;
+}
+
+.active {
+  border: 2px solid black;
 }
 
 .colour-1 {
@@ -102,15 +111,52 @@ button:disabled {
   background-color: #8338EC;
 }
 
-
-.checkmark span {
-  position: absolute;
-  left:0;
-  top:0;
-  background-color: #FFBE0B;
-  width: 20px;
-  height: 20px;
+.colour-banner {
+  width: 1rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
+
+.colour-banner-FFBE0B {
+  background-color: #FFBE0B;
+}
+
+.colour-banner-FF9B71 {
+  background-color: #FF9B71;
+}
+
+.colour-banner-FB5607 {
+  background-color: #FB5607;
+}
+.colour-banner-97512C {
+  background-color: #97512C;
+}
+.colour-banner-DBBADD {
+  background-color:  #DBBADD;
+}
+.colour-banner-FF006E {
+  background-color: #FF006E;
+}
+.colour-banner-A9F0D1 {
+  background-color: #A9F0D1;
+}
+.colour-banner-00B402 {
+  background-color: #00B402;
+}
+.colour-banner-489DDA {
+  background-color: #489DDA;
+}
+.colour-banner-0072E8 {
+  background-color: #0072E8;
+}
+.colour-banner-8338EC {
+  background-color: #8338EC;
+}
+
+form {
+  align-items: center;
+}
+
 button {
   background: #489DDA;
   cursor: pointer;

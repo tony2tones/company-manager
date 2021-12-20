@@ -21,34 +21,40 @@
     <input type="number" class="form-control" formControlName="officeCapacity" name="officeCapacity" ngModel placeholder="Maximum Capacity" value="">
   </div>
   <div>
-    <h3>Office Colour</h3>
+    <div class="colour-title">
+      <h3>Office Colour</h3>
+    </div>
     <div class="colour-scheme">
-      <div ngClass="active : editOfficeProfileForm.colourScheme " class="colour-1 dot active" (click)="colourSelected('#FFBE0B')"> </div>
-      <div class="colour-2 dot" (click)="colourSelected('#FF9B71')"> </div>
-      <div class="colour-3 dot" (click)="colourSelected('#FB5607')"> </div>
-      <div class="colour-4 dot" (click)="colourSelected('#97512C')"> </div>
-      <div class="colour-5 dot" (click)="colourSelected('#DBBADD')"> </div>
-      <div class="colour-6 dot" (click)="colourSelected('#FF006E')"> </div>
+      <div [style.active]="colourHash === '#FFBE0B'" class="colour-1 dot" (click)="colourSelected('#FFBE0B')"> </div>
+      <div [style.active]="colourHash === '#FF9B71'" class="colour-2 dot" (click)="colourSelected('#FF9B71')"> </div>
+      <div [style.active]="colourHash === '#FB5607'" class="colour-3 dot" (click)="colourSelected('#FB5607')"> </div>
+      <div [style.active]="colourHash === '#97512C'" class="colour-4 dot" (click)="colourSelected('#97512C')"> </div>
+      <div [style.active]="colourHash === '#DBBADD'" class="colour-5 dot" (click)="colourSelected('#DBBADD')"> </div>
+      <div [style.active]="colourHash === '#FF006E'" class="colour-6 dot" (click)="colourSelected('#FF006E')"> </div>
     </div>
     <div class="colour-row-2">
-        <div class="colour-7 dot" (click)="colourSelected('#A9F0D1')"> </div>
-        <div class="colour-8 dot" (click)="colourSelected('#00B402')"> </div>
-        <div class="colour-9 dot" (click)="colourSelected('#489DDA')"> </div>
-        <div class="colour-10 dot" (click)="colourSelected('#0072E8')"> </div>
-        <div class="colour-11 dot" (click)="colourSelected('#8338EC')"> </div>
+      <div [style.active]="colourHash === '#A9F0D1'" class="colour-7 dot" (click)="colourSelected('#A9F0D1')"> </div>
+      <div [style.active]="colourHash === '#00B402'" class="colour-8 dot" (click)="colourSelected('#00B402')"> </div>
+      <div [style.active]="colourHash === '#489DDA'" class="colour-9 dot" (click)="colourSelected('#489DDA')"> </div>
+      <div [style.active]="colourHash === '#0072E8'" class="colour-10 dot" (click)="colourSelected('#0072E8')"> </div>
+      <div [style.active]="colourHash === '#8338EC'" class="colour-11 dot" (click)="colourSelected('#8338EC')"> </div>
     </div>
   </div>
-  <div class="staff-container">
-    <div class="form-group">
-      <p>New Staff Member</p>
-    <div><input type="text" formControlName="firstName" /></div>
-    <div><input type="text" formControlName="lastName" /> </div>
-  <button (click)="addUser()">Add New User</button>
-  <!-- {{staff | json }} -->
-  </div>
-  </div>
-  <div class="form-group ">
-    <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
-    <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="deleteOffice()">DELETE OFFICE</button>
+  <div><p> Colour selected </p><span class="colour-banner colour-banner-{{ colourHash }}"></span></div>
+  <form [formGroup]="staff">
+    <div class="staff-container">
+      <div class="form-group">
+        <p>Add New Staff Member</p>
+      <div><input class="form-control" type="text" formControlName="firstName" /></div>
+      <div><input class="form-control" type="text" formControlName="lastName" /> </div>
+        <button (click)="addUser()">Add New User</button>
+      </div>
+    </div>
+  </form>
+<div class="form-group ">
+  <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
+  <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="deleteOffice()">DELETE OFFICE</button>
 </div>
 </form>
+
+
