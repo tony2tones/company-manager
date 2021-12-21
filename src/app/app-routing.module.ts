@@ -1,7 +1,6 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OfficeComponent } from './components/rooms/room/office.component';
 import { OfficeViewComponent } from './components/rooms/office-view.component';
 import { AddOfficeComponent } from './components/add-office/add-office.component';
 import { EditOfficeComponent } from './components/edit-office/edit-office.component';

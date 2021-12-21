@@ -19,8 +19,8 @@ export class AddUserComponent implements OnInit {
   createFormGroup() {
     this.userForm = this.formBuilder.group({
       firstName: ['', Validators.required],
-      laststName: ['', Validators.required],
-      officeCapacity: [0, Validators.required],
+      lastName: ['', Validators.required],
+      avatar: [0, Validators.required],
     });
 
   }
