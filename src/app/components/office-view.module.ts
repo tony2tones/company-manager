@@ -12,6 +12,7 @@ import { EditOfficeComponent } from './edit-office/edit-office.component';
 import { OfficeProfileComponent } from './office-profile/office-profile.component';
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 import { UserlistComponent } from './users/userlist/userlist.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserlistComponent } from './users/userlist/userlist.component';
     EditOfficeComponent,
     OfficeProfileComponent,
     GenericModalComponent,
-    UserlistComponent
+    UserlistComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
