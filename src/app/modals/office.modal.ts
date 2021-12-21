@@ -1,3 +1,5 @@
+import { User } from "./staff.modal";
+
 export class Office {
     _id: string;
     companyName: string;
@@ -5,6 +7,6 @@ export class Office {
     email: string;
     officeCapacity: number;
     address: string;
-    staff: [{}];
+    staff: User[];
     colourScheme: string;
 }

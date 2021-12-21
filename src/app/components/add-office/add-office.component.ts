@@ -25,7 +25,7 @@ export class AddOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: [''],
+      staff: this.formBuilder.array([]),
     });
 
   }

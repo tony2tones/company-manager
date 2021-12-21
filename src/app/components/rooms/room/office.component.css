@@ -82,6 +82,7 @@
 .count {
   display: flex;
   flex-direction: row;
+  margin-bottom: -30px;
 }
 
 .count p {
@@ -93,6 +94,7 @@
 }
 .staff-current-count img {
   padding: 10px;
+  margin-bottom: 16px;
 }
 
 .name {

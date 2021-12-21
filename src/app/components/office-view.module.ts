@@ -4,11 +4,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { OfficeViewComponent } from './rooms/office-view.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { OfficeComponent } from './rooms/room/office.component';
 import { AddOfficeComponent } from './add-office/add-office.component';
 import { EditOfficeComponent } from './edit-office/edit-office.component';
 import { OfficeProfileComponent } from './office-profile/office-profile.component';
+import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
+import { UserlistComponent } from './users/userlist/userlist.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,16 @@ import { OfficeProfileComponent } from './office-profile/office-profile.componen
     OfficeComponent,
     AddOfficeComponent,
     EditOfficeComponent,
-    OfficeProfileComponent
+    OfficeProfileComponent,
+    GenericModalComponent,
+    UserlistComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule]
+    HttpClientModule,
+    NgbModule,
+  ]
 })
 export class OfficeModule { }
