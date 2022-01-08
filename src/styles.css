@@ -11,3 +11,22 @@
   margin: 0px;
   /* background: #E5E5E5; */
 }
+
+button {
+  width: 232px;
+  margin: 1rem;
+  height: 2.5rem;
+  background: #489DDA;
+  color: white;
+  border:none;
+  border-radius: 20px;
+}
+button:disabled {
+  background: #ccc;
+  cursor:not-allowed;
+}
+
+button {
+  background: #489DDA;
+  cursor: pointer;
+}

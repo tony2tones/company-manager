@@ -103,6 +103,7 @@ export class EditOfficeComponent implements OnInit {
       address: editOffice.address,
       email: editOffice.email,
       colourScheme: editOffice.colourScheme,
+      staff: editOffice.staff,
     })
     console.log('TARGET ', this.colourHash);
     // this.onSubmit();

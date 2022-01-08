@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServices } from 'src/app/users.service';
+import { OfficeServices } from 'src/app/service.service';
+import { officeServicess } from 'src/app/users.service';
 
 @Component({
   selector: 'app-add-user',
@@ -10,7 +11,9 @@ import { UserServices } from 'src/app/users.service';
 export class AddUserComponent implements OnInit {
   public userForm: FormGroup;
 
-  constructor(private userService: UserServices, private formBuilder: FormBuilder) { }
+  @Input() roomId: string = ''; 
+
+  constructor(private officeServices: OfficeServices, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.createFormGroup();
@@ -24,18 +27,11 @@ export class AddUserComponent implements OnInit {
     });
 
   }
-
-  public colourSelected(colour: string) {
-    this.userForm.patchValue({
-      colourScheme: colour
-    });
-  }
   
-  public onSubmit() {
-    console.log('details', this.userForm);
+  public addUser() {
 
     if (this.userForm.valid) {
-      this.userService.addUser(this.userForm.value).subscribe((data) => {
+      this.officeServices.updateOfficeUser(this.userForm.value, this.roomId).subscribe((data) => {
 
       }),
         (err) => console.log(err);
