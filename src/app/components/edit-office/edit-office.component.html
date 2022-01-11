@@ -25,22 +25,26 @@
       <h3>Office Colour</h3>
     </div>
     <div class="colour-scheme">
-      <div [style.active]="colourHash === '#FFBE0B'" class="colour-1 dot" (click)="colourSelected('#FFBE0B')"> </div>
-      <div [style.active]="colourHash === '#FF9B71'" class="colour-2 dot" (click)="colourSelected('#FF9B71')"> </div>
-      <div [style.active]="colourHash === '#FB5607'" class="colour-3 dot" (click)="colourSelected('#FB5607')"> </div>
-      <div [style.active]="colourHash === '#97512C'" class="colour-4 dot" (click)="colourSelected('#97512C')"> </div>
-      <div [style.active]="colourHash === '#DBBADD'" class="colour-5 dot" (click)="colourSelected('#DBBADD')"> </div>
-      <div [style.active]="colourHash === '#FF006E'" class="colour-6 dot" (click)="colourSelected('#FF006E')"> </div>
+      <!-- [ngClass]="{'active': colourHash === 'FFBE0B'}" -->
+      <div [ngClass]="{'active': colourHash === '#FFBE0B'}" class="colour-1 dot" (click)="colourSelected('#FFBE0B')"> </div>
+      <div [ngClass]="{'active': colourHash === '#FF9B71'}" class="colour-2 dot" (click)="colourSelected('#FF9B71')"> </div>
+      <div [ngClass]="{'active': colourHash === '#FB5607'}" class="colour-3 dot" (click)="colourSelected('#FB5607')"> </div>
+      <div [ngClass]="{'active': colourHash === '#97512C'}" class="colour-4 dot" (click)="colourSelected('#97512C')"> </div>
+      <div [ngClass]="{'active': colourHash === '#DBBADD'}" class="colour-5 dot" (click)="colourSelected('#DBBADD')"> </div>
+      <div [ngClass]="{'active': colourHash === '#FF006E'}" class="colour-6 dot" (click)="colourSelected('#FF006E')"> </div>
     </div>
     <div class="colour-row-2">
-      <div [style.active]="colourHash === '#A9F0D1'" class="colour-7 dot" (click)="colourSelected('#A9F0D1')"> </div>
-      <div [style.active]="colourHash === '#00B402'" class="colour-8 dot" (click)="colourSelected('#00B402')"> </div>
-      <div [style.active]="colourHash === '#489DDA'" class="colour-9 dot" (click)="colourSelected('#489DDA')"> </div>
-      <div [style.active]="colourHash === '#0072E8'" class="colour-10 dot" (click)="colourSelected('#0072E8')"> </div>
-      <div [style.active]="colourHash === '#8338EC'" class="colour-11 dot" (click)="colourSelected('#8338EC')"> </div>
+      <div [ngClass]="{'active': colourHash === '#A9F0D1'}" class="colour-7 dot" (click)="colourSelected('#A9F0D1')"> </div>
+      <div [ngClass]="{'active': colourHash === '#00B402'}" class="colour-8 dot" (click)="colourSelected('#00B402')"> </div>
+      <div [ngClass]="{'active': colourHash === '#489DDA'}" class="colour-9 dot" (click)="colourSelected('#489DDA')"> </div>
+      <div [ngClass]="{'active': colourHash === '#0072E8'}" class="colour-10 dot" (click)="colourSelected('#0072E8')"> </div>
+      <div [ngClass]="{'active': colourHash === '#8338EC'}" class="colour-11 dot" (click)="colourSelected('#8338EC')"> </div>
     </div>
   </div>
+</form>
   <div><p> Colour selected </p><span class="colour-banner colour-banner-{{ colourHash }}"></span></div>
+  <!-- <div class="overlay"></div> -->
+  <!-- <div class="modal"> -->
   <form [formGroup]="staff">
     <div class="staff-container">
       <div class="form-group">
@@ -50,11 +54,11 @@
         <button (click)="addUser()">Add New User</button>
       </div>
     </div>
+    <div class="form-group ">
+      <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
+      <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="deleteOffice()">DELETE OFFICE</button>
+    </div>
   </form>
-<div class="form-group ">
-  <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
-  <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="deleteOffice()">DELETE OFFICE</button>
-</div>
-</form>
+<!-- </div> -->
 
 
