@@ -1,64 +1,209 @@
-<form [formGroup]="editOfficeProfileForm"  (ngSubmit)="onSubmit()">
+<form [formGroup]="editOfficeProfileForm" (ngSubmit)="onSubmit()">
   <h1 id="officeProfile">Edit office</h1>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="companyName" name="companyName" ngModel placeholder="Office Name" value="companyName">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="companyName"
+      name="companyName"
+      ngModel
+      placeholder="Office Name"
+      value="companyName"
+    />
   </div>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="address"name="address" ngModel placeholder="Physical Address" value="editOfficeProfileForm.address">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="address"
+      name="address"
+      ngModel
+      placeholder="Physical Address"
+      value="editOfficeProfileForm.address"
+    />
   </div>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="email" name="email" ngModel placeholder="Email Address" value="">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="email"
+      name="email"
+      ngModel
+      placeholder="Email Address"
+      value=""
+    />
   </div>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="phoneNumber"name="staff" ngModel placeholder="Phone Number" value="">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="phoneNumber"
+      name="staff"
+      ngModel
+      placeholder="Phone Number"
+      value=""
+    />
   </div>
   <div class="form-group">
     <label for=""></label>
-    <input type="number" class="form-control" formControlName="officeCapacity" name="officeCapacity" ngModel placeholder="Maximum Capacity" value="">
+    <input
+      type="number"
+      class="form-control"
+      formControlName="officeCapacity"
+      name="officeCapacity"
+      ngModel
+      placeholder="Maximum Capacity"
+      value=""
+    />
   </div>
   <div>
     <div class="colour-title">
       <h3>Office Colour</h3>
     </div>
     <div class="colour-scheme">
-      <!-- [ngClass]="{'active': colourHash === 'FFBE0B'}" -->
-      <div [ngClass]="{'active': colourHash === '#FFBE0B'}" class="colour-1 dot" (click)="colourSelected('#FFBE0B')"> </div>
-      <div [ngClass]="{'active': colourHash === '#FF9B71'}" class="colour-2 dot" (click)="colourSelected('#FF9B71')"> </div>
-      <div [ngClass]="{'active': colourHash === '#FB5607'}" class="colour-3 dot" (click)="colourSelected('#FB5607')"> </div>
-      <div [ngClass]="{'active': colourHash === '#97512C'}" class="colour-4 dot" (click)="colourSelected('#97512C')"> </div>
-      <div [ngClass]="{'active': colourHash === '#DBBADD'}" class="colour-5 dot" (click)="colourSelected('#DBBADD')"> </div>
-      <div [ngClass]="{'active': colourHash === '#FF006E'}" class="colour-6 dot" (click)="colourSelected('#FF006E')"> </div>
+      <div
+        [ngClass]="{ active: colourHash === '#FFBE0B' }"
+        class="colour-1 dot"
+        (click)="colourSelected('#FFBE0B')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#FF9B71' }"
+        class="colour-2 dot"
+        (click)="colourSelected('#FF9B71')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#FB5607' }"
+        class="colour-3 dot"
+        (click)="colourSelected('#FB5607')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#97512C' }"
+        class="colour-4 dot"
+        (click)="colourSelected('#97512C')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#DBBADD' }"
+        class="colour-5 dot"
+        (click)="colourSelected('#DBBADD')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#FF006E' }"
+        class="colour-6 dot"
+        (click)="colourSelected('#FF006E')"
+      ></div>
     </div>
     <div class="colour-row-2">
-      <div [ngClass]="{'active': colourHash === '#A9F0D1'}" class="colour-7 dot" (click)="colourSelected('#A9F0D1')"> </div>
-      <div [ngClass]="{'active': colourHash === '#00B402'}" class="colour-8 dot" (click)="colourSelected('#00B402')"> </div>
-      <div [ngClass]="{'active': colourHash === '#489DDA'}" class="colour-9 dot" (click)="colourSelected('#489DDA')"> </div>
-      <div [ngClass]="{'active': colourHash === '#0072E8'}" class="colour-10 dot" (click)="colourSelected('#0072E8')"> </div>
-      <div [ngClass]="{'active': colourHash === '#8338EC'}" class="colour-11 dot" (click)="colourSelected('#8338EC')"> </div>
+      <div
+        [ngClass]="{ active: colourHash === '#A9F0D1' }"
+        class="colour-7 dot"
+        (click)="colourSelected('#A9F0D1')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#00B402' }"
+        class="colour-8 dot"
+        (click)="colourSelected('#00B402')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#489DDA' }"
+        class="colour-9 dot"
+        (click)="colourSelected('#489DDA')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#0072E8' }"
+        class="colour-10 dot"
+        (click)="colourSelected('#0072E8')"
+      ></div>
+      <div
+        [ngClass]="{ active: colourHash === '#8338EC' }"
+        class="colour-11 dot"
+        (click)="colourSelected('#8338EC')"
+      ></div>
     </div>
   </div>
 </form>
-  <div><p> Colour selected </p><span class="colour-banner colour-banner-{{ colourHash }}"></span></div>
-  <!-- <div class="overlay"></div> -->
-  <!-- <div class="modal"> -->
-  <form [formGroup]="staff">
-    <div class="staff-container">
-      <div class="form-group">
-        <p>Add New Staff Member</p>
-      <div><input class="form-control" type="text" formControlName="firstName" /></div>
-      <div><input class="form-control" type="text" formControlName="lastName" /> </div>
-        <button (click)="addUser()">Add New User</button>
+<div class="form-group">
+  <div class="btn-layout">
+    <button
+      class=""
+      [disabled]="!editOfficeProfileForm.valid"
+      (click)="onSubmit()"
+    >
+      UPDATE OFFICE
+    </button>
+    <button
+      class=""
+      [disabled]="!editOfficeProfileForm.valid"
+      (click)="deleteOffice()"
+    >
+      DELETE OFFICE
+    </button>
+  </div>
+</div>
+<form [formGroup]="userForm">
+  <!-- <div *ngFor="let staff of userForm"> -->
+  <!-- <div class="form-group"> -->
+  <input
+    type="text"
+    class="form-control"
+    id="firstName"
+    type="text"
+    formControlName="firstName"
+  />
+  <input
+    type="text"
+    class="form-control"
+    id="lastName"
+    type="text"
+    formControlName="lastName"
+  />
+  <input
+    type="text"
+    class="form-control"
+    id="avatar"
+    type="text"
+    formControlName="avatar"
+  />
+</form>
+
+<div class="form-group">
+  <div class="btn-layout">
+    <button class="" (click)="addUser()">ADD USER</button>
+  </div>
+</div>
+
+<!-- // [disabled]="!userForm.valid" -->
+<!-- </form> -->
+<!-- <div class="overlay"></div> -->
+<!-- <div class="modal"> -->
+<!-- <form [formGroup]="staff">
+  <div class="staff-container">
+    <div class="form-group">
+      <p>Add New Staff Member</p>
+      <div>
+        <input class="form-control" type="text" formControlName="firstName" />
+      </div>
+      <div>
+        <input class="form-control" type="text" formControlName="lastName" />
+      </div>
+      <div>
+        <input class="form-control" type="text" formControlName="avatar" />
       </div>
     </div>
-    <div class="form-group ">
-      <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">UPDATE OFFICE</button>
-      <button class="" [disabled]="!editOfficeProfileForm.valid" (click)="deleteOffice()">DELETE OFFICE</button>
+    <button (click)="addUser()">Add New User</button>
+  </div>
+</form> -->
+<!-- <form [formGroup]="staffList" (ngSubmit)="addUser()">
+
+<div class="staff-container">
+  <div *ngIf="staffList?.length" class="form-group">
+    <div  formArrayName="getStaff" *ngFor="let staff of staffList; let i = index">
+      <input type="text" class="form-control" [formControlName]="i" placeholder="i"/>
+      {{ staff.lastName }}/
     </div>
-  </form>
-<!-- </div> -->
-
-
+  </div>
+</div>
+</form> -->

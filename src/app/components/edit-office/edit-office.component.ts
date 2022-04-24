@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Office } from 'src/app/modals/office.modal';
 import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { GenericModalComponent } from '../modals/generic-modal/generic-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -15,14 +14,19 @@ import { GenericModalComponent } from '../modals/generic-modal/generic-modal.com
 })
 export class EditOfficeComponent implements OnInit {
   public editOfficeProfileForm: FormGroup;
+  public userForm: FormGroup;
   public officeId: string;
   public colourHash: string;
-  public staff:FormGroup;
+  public staff: FormGroup;
+  public currentStaffList: User[] = [];
+  public newUser: User;
+  public staffList:FormGroup;
   selectedOffice: Office;
+  newArray: any;
 
   constructor(
     private officeService: OfficeServices,
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal
@@ -43,25 +47,55 @@ export class EditOfficeComponent implements OnInit {
   }
 
   createFormGroup() {
-    this.editOfficeProfileForm = this.formBuilder.group({
+    this.editOfficeProfileForm = this.fb.group({
       companyName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
+      users: []
     });
-    this.staff = this.formBuilder.group({
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        avatar: [''],
-      });
+    this.userForm = this.fb.group({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      avatar: new FormControl('', [Validators.required]),
+    });
+    console.log(this.userForm);
+    //  staff: this.fb.array([])
+    // );
+  }
+  get getStaff(): FormArray {
+    return this.editOfficeProfileForm.get["users"] as FormArray;
   }
 
   public addUser() {
+    const whatsThis = this.editOfficeProfileForm.controls["users"];
+    this.newUser = this.userForm.value;
+    let newArray = [];
+    this.currentStaffList.push(...newArray, this.newUser);
+console.log('edit form users ', whatsThis);
+    // this.editOfficeProfileForm.controls["users"].setValue(this.userForm);
+    console.log('Staff list ', this.currentStaffList);
+  }
+
+  
+
+  // newSkill(): FormGroup {
+  //   return this.formBuilder.group({
+  //     firstName: ['', Validators.required],
+  //     lastName: ['', Validators.required],
+  //     avatar: [''],
+  //   })
+  // }
+
+
   //   const modalReff = this.modalService.open(GenericModalComponent, {size: 'sm'});
   //   const componentInstance = modalReff.componentInstance as GenericModalComponent;
-
+  // ({
+  //   firstName: ['', Validators.required],
+  //   lastName: ['', Validators.required],
+  //   avatar: [''],
   //   componentInstance.title = 'Add User';
     // const userForm = this.formBuilder.group({
     //   firstName: ['', Validators.required],
@@ -69,65 +103,73 @@ export class EditOfficeComponent implements OnInit {
     //   avatar: [''],
     // });
 
-    // this.staff.push(userForm.value);
-  }
+    // this.currentStaffList.push(this.staff.value);
+//     console.log('Staff in? ', this.editOfficeProfileForm);
+// }
 
-  deleteUser(lessonIndex: number) {
-    // this.staff.removeAt(lessonIndex);
+deleteUser(lessonIndex: number) {
+  // this.staff.removeAt(lessonIndex);
 }
 
   public colourSelected(colour) {
-    this.colourHash = colour;
-    this.editOfficeProfileForm.patchValue({
-      colourScheme: colour
-    });
-    console.log('details', this.colourHash);
-  }
+  this.colourHash = colour;
+  this.editOfficeProfileForm.patchValue({
+    colourScheme: colour
+  });
+  console.log('details', this.colourHash);
+}
+
+  public setColour(colorHash: string) {
+
+
+}
 
   public getOfficeInfo(): void {
-    this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
-      this.editOffice(formData);
-      this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
-      console.log('this should be one office ', this.colourHash);
-    })
-  }
+  this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
+    this.editOffice(formData);
+    this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
+    console.log('this should be one office ', this.colourHash);
+    console.log('this should be one office  form value', this.editOfficeProfileForm.controls['colourScheme'].value);
+    console.log('this should be one office ', this.colourHash);
+  })
+}
 
   public editOffice(office: Office) {
-    // console.log(office);
-    this.colourHash = office.colourScheme;
-    const editOffice = office[0];
-    this.editOfficeProfileForm.patchValue({
-      companyName: editOffice.companyName,
-      phoneNumber: editOffice.phoneNumber,
-      officeCapacity: editOffice.officeCapacity,
-      address: editOffice.address,
-      email: editOffice.email,
-      colourScheme: editOffice.colourScheme,
-      staff: editOffice.staff,
-    })
-    console.log('TARGET ', this.colourHash);
-    // this.onSubmit();
-    // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
-  }
+  console.log('EDIT OFFICE IN QUESTION ',office);
+  this.colourHash = office.colourScheme;
+  const editOffice = office[0];
+  this.editOfficeProfileForm.patchValue({
+    companyName: editOffice.companyName,
+    phoneNumber: editOffice.phoneNumber,
+    officeCapacity: editOffice.officeCapacity,
+    address: editOffice.address,
+    email: editOffice.email,
+    colourScheme: editOffice.colourScheme,
+    staff: editOffice.staff,
+  })
+  // this.onSubmit();
+  // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
+}
 
   public deleteOffice() {
-    this.officeService.deleteOffice(this.officeId).subscribe((data) => {
-      console.log('resonse', data);
-    }),
-      (error) => {
-        console.log(error)
-      }
-  }
+  this.officeService.deleteOffice(this.officeId).subscribe((data) => {
+    console.log('resonse', data);
+  }),
+    (error) => {
+      console.log(error)
+    }
+}
 
   public onSubmit() {
-console.log(this.editOfficeProfileForm)
-    if (this.editOfficeProfileForm.valid) {
-      this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
-        console.log('speak to me ', data);
-        this.router.navigate(['/']);
-      }),
-        (err) => console.log(err);
-    }
+  console.log(this.editOfficeProfileForm)
+  // this.editOfficeProfileForm.controls['staff'] = [...this.currentStaffList];
+  if (this.editOfficeProfileForm.valid) {
+    this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
+      console.log('speak to me ', data);
+      this.router.navigate(['/']);
+    }),
+      (err) => console.log(err);
   }
+}
 
 }
