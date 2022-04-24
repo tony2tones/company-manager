@@ -70,13 +70,11 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public addUser() {
-    const whatsThis = this.editOfficeProfileForm.controls["users"];
     this.newUser = this.userForm.value;
     let newArray = [];
     this.currentStaffList.push(...newArray, this.newUser);
-console.log('edit form users ', whatsThis);
-    // this.editOfficeProfileForm.controls["users"].setValue(this.userForm);
-    console.log('Staff list ', this.currentStaffList);
+    this.editOfficeProfileForm.controls["users"].patchValue(this.currentStaffList);
+    console.log('Staff list ', this.editOfficeProfileForm);
   }
 
   
@@ -146,6 +144,7 @@ deleteUser(lessonIndex: number) {
     email: editOffice.email,
     colourScheme: editOffice.colourScheme,
     staff: editOffice.staff,
+    users: editOffice.users,
   })
   // this.onSubmit();
   // this.editOfficeProfileForm.controls['companyName'].setValue = office.companyName;
