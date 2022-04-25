@@ -13,6 +13,7 @@ import { OfficeProfileComponent } from './office-profile/office-profile.componen
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 import { UserlistComponent } from './users/userlist/userlist.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     GenericModalComponent,
     UserlistComponent,
     AddUserComponent,
+    UsersComponent,
+    
   ],
   imports: [
     BrowserModule,

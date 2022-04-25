@@ -14,7 +14,6 @@ export class OfficeViewComponent implements OnInit {
   getOffices() {
     this.officeService.getOffices().subscribe((data:Office[]) => {
       this.offices = data;
-      console.log('this is it',this.offices)
     })
   } 
   ngOnInit(): void {

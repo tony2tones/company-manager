@@ -1,11 +1,13 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OfficeComponent } from './components/rooms/room/office.component';
+// import { OfficeComponent } from './components/rooms/room/office.component';
 import { OfficeViewComponent } from './components/rooms/office-view.component';
 import { AddOfficeComponent } from './components/add-office/add-office.component';
 import { EditOfficeComponent } from './components/edit-office/edit-office.component';
 import { OfficeProfileComponent } from './components/office-profile/office-profile.component';
+// import { AddUserComponent } from './components/add-user/add-user.component';
+import { UsersComponent } from './components/users/users.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,7 @@ const routes: Routes = [
     { path: 'office-view', component: OfficeViewComponent },
     { path: 'office-view/:roomId', component: OfficeProfileComponent },
     { path: 'office-view/edit-office/:roomId', component: EditOfficeComponent },
+    { path: 'view-user-list', component: UsersComponent },
     { path: 'add-new-office', component: AddOfficeComponent },
 ];
  

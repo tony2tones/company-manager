@@ -31,6 +31,9 @@ export class OfficeServices {
 
     deleteOffice(officeId: string): Observable<any> {
         return this.http.delete(`http://localHost:3000/api/office/${officeId}`);
+    }
 
+    getUsers(): Observable<any> {
+        return this.http.get('http://localHost:3000/api/users');
     }
 }
