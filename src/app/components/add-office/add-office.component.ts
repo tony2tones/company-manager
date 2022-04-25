@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
 // import { EventEmitter } from 'stream';
 
@@ -10,27 +11,31 @@ import { OfficeServices } from 'src/app/service.service';
 })
 export class AddOfficeComponent implements OnInit {
   public officeProfileForm: FormGroup;
+  public userForm: FormGroup;
 
-  constructor(private officeService: OfficeServices, private formBuilder: FormBuilder) { }
+  public currentStaffList: User[] = [];
+  public newUser: User;
+
+  constructor(private officeService: OfficeServices, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.createFormGroup();
   }
 
   createFormGroup() {
-    this.officeProfileForm = this.formBuilder.group({
+    this.officeProfileForm = this.fb.group({
       companyName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
       officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: this.formBuilder.array([{
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        avatar: [''],
-      }])
-      // staff: this.formBuilder.array([]),
+      users: []
+    });
+    this.userForm = this.fb.group({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      avatar: new FormControl('', [Validators.required]),
     });
 
   }
@@ -41,6 +46,14 @@ export class AddOfficeComponent implements OnInit {
     });
   }
   
+  public addUser() {
+    this.newUser = this.userForm.value;
+    let newArray = [];
+    this.currentStaffList.push(...newArray, this.newUser);
+    this.officeProfileForm.controls["users"].patchValue(this.currentStaffList);
+    console.log('Staff list ', this.officeProfileForm);
+  }
+
   public onSubmit() {
     console.log('details', this.officeProfileForm);
 
