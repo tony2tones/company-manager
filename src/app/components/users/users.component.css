@@ -1,4 +1,7 @@
 .user--panel {
     display: flex;
-    /* flex-direction: row; */
+}
+
+.user--panel > li {
+    flex-direction: row;
 }
