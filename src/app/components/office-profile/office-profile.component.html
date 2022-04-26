@@ -1,4 +1,5 @@
-<app-office-room
+<app-office-room 
+*ngIf="menuToggle"
 [companyName]="office.companyName"
 [officeCapacity]="office.officeCapacity"
 [phoneNumber]="office.phoneNumber"
@@ -8,5 +9,10 @@
 [officeId]="office._id"
 [menuToggle]="menuToggle"
 ></app-office-room>
+<div class="form-group">
+    <button class="" (click)="toggleMenu()" >ADD USER</button>
+</div>
+
+<app-add-user *ngIf="!menuToggle" [roomId]="officeId"></app-add-user>
 
 <app-userlist></app-userlist>
