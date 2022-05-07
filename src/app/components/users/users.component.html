@@ -1,15 +1,17 @@
-<div *ngFor="let staff of userList">
+<div class="user-container">
+  <div *ngFor="let staff of userList">
     <div class="user--panel">
-    <ul>
+      <ul>
         <li>
-            {{ staff.firstName }}
+          {{ staff.firstName }}
         </li>
         <li>
-            {{ staff.lastName }}
+          {{ staff.lastName }}
         </li>
         <li>
-            {{ staff.avatar }}
+          {{ staff.avatar }}
         </li>
-    </ul>
-</div>
+      </ul>
+    </div>
+  </div>
 </div>

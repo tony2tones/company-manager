@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OfficeServices } from 'src/app/service.service';
+import { UserServices } from 'src/app/users.service';
 
 @Component({
   selector: 'app-add-user',
@@ -12,7 +13,7 @@ export class AddUserComponent implements OnInit {
 
   @Input() roomId: string = ''; 
 
-  constructor(private officeServices: OfficeServices, private formBuilder: FormBuilder) { }
+  constructor(private usersService: UserServices, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.createFormGroup();
@@ -20,18 +21,19 @@ export class AddUserComponent implements OnInit {
 
   createFormGroup() {
     this.userForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      avatar: [0, Validators.required],
+      firstName: new FormControl(['', Validators.required]),
+      lastName: new FormControl(['', Validators.required]),
+      avatar:new FormControl(['', Validators.required]),
     });
 
   }
   
   public addUser() {
-
+console.log('Submitted forms current value ', this.userForm.value);
     if (this.userForm.valid) {
-      this.officeServices.updateOfficeUser(this.userForm.value, this.roomId).subscribe((data) => {
-
+      // this.officeServices.updateOfficeUser(this.userForm.value, this.roomId).subscribe((data) => {
+        this.usersService.addUser(this.userForm).subscribe((data) => {
+          console.log('did this work', data);
       }),
         (err) => console.log(err);
     }

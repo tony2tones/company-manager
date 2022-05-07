@@ -9,27 +9,24 @@ export class UserServices {
 
     constructor(private http: HttpClient) { }
 
-    getUsers(): Observable<any> {
-        console.log('test click ');
+    public getUsers(): Observable<any> {
         return this.http.get('http://localHost:3000/api/users');
     }
 
-    getUserById(userId: string): Observable<any> {
+    public getUserById(userId: string): Observable<any> {
         return this.http.get(`http://localHost:3000/api/user/${userId}`);
     }
 
-
-    addUser(newuser): Observable<any> {
+    public addUser(newuser): Observable<any> {
         return this.http.post('http://localHost:3000/api/user', newuser);
-
     }
 
-    updateUser(edituser: User, userId: string): Observable<any> {
+    public updateUser(edituser: User, userId: string): Observable<any> {
         return this.http.put(`http://localHost:3000/api/user/${userId}`, edituser);
 
     }
 
-    deleteUser(userId: string): Observable<any> {
+    public deleteUser(userId: string): Observable<any> {
         return this.http.delete(`http://localHost:3000/api/user/${userId}`);
 
     }
