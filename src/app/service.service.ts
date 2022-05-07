@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { map } from 'rxjs/operators';
 import { Observable } from "rxjs";
 import { Office } from "./modals/office.modal";
+import { User } from "./modals/staff.modal";
 @Injectable({
     providedIn: 'root'
 })
@@ -26,11 +27,17 @@ export class OfficeServices {
 
     updateOffice(editOffice: Office, officeId: string): Observable<any> {
         return this.http.put(`http://localHost:3000/api/office/${officeId}`, editOffice);
+    }
 
+    updateOfficeUser(users: User[], officeId: string): Observable<any> {
+        return this.http.put(`http://localHost:3000/api/office/${officeId}/user`, users);
     }
 
     deleteOffice(officeId: string): Observable<any> {
         return this.http.delete(`http://localHost:3000/api/office/${officeId}`);
-
     }
+
+    // getUsers(): Observable<any> {
+    //     return this.http.get('http://localHost:3000/api/users');
+    // }
 }

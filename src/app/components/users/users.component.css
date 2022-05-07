@@ -1,0 +1,22 @@
+.user-container{
+    text-align: center;
+}
+
+.user--panel {
+    width: 23rem;
+    display: inline-block;
+
+}
+
+.user--panel > ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(232, 233, 234);
+    border-radius: 15px;
+    padding:2rem;
+} 
+
+li {
+    list-style: none;
+    justify-content:space-between;
+}

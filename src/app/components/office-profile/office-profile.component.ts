@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Office } from 'src/app/modals/office.modal';
+import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class OfficeProfileComponent implements OnInit {
 
   public office: Office;
 
-  public staff: [] = [];
+  public staff: User[] = [];
 
   public menuToggle: boolean = true;
 

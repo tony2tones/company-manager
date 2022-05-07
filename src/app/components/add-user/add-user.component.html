@@ -1,19 +1,19 @@
-<form [formGroup]="userForm"  (ngSubmit)="onSubmit()">
-  <h1 id="officeProfile">New office</h1>
+<form [formGroup]="userForm"  >
+  <h1 id="officeProfile">Add new staff member</h1>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="firstName" name="firstName" ngModel placeholder="First name" value="">
+    <input type="text" class="form-control" formControlName="firstName" name="firstName" placeholder="First name" value="">
   </div>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="lastName"name="lastName" ngModel placeholder="last name" value="">
+    <input type="text" class="form-control" formControlName="lastName" name="lastName" placeholder="Last name" value="">
   </div>
   <div class="form-group">
     <label for=""></label>
-    <input type="text" class="form-control" formControlName="avatar" name="avatar" ngModel placeholder="avatar" value="">
+    <input type="text" class="form-control" formControlName="avatar" name="avatar" placeholder="Avatar" value="">
   </div>
   
   <div class="form-group ">
-    <button class="" [disabled]="!userForm.valid" (click)="onSubmit()">ADD OFFICE</button>
+    <button class="" [disabled]="!userForm.valid" (click)="addUser()">ADD USER</button>
 </div>
 </form>
