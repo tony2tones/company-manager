@@ -1,5 +1,14 @@
 <div class="user-container">
-  <div *ngFor="let staff of userList">
+<div class="search-field">
+  <form [formGroup]="searchName">
+    <div class="form-group">
+      <label for="searchName">Filter users</label>
+      <input type="text" class="form-control" formControlName="searchterm" />
+    </div>
+  </form>
+</div>
+
+  <div *ngFor="let staff of filteredUserList">
     <div class="user--panel">
       <ul>
         <li>

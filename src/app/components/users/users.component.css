@@ -8,6 +8,11 @@
 
 }
 
+.search-field {
+    width: 23rem;
+    display: inline-block;
+}
+
 .user--panel > ul {
     display: flex;
     justify-content: space-around;
