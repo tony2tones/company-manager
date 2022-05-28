@@ -14,6 +14,7 @@ import { GenericModalComponent } from './modals/generic-modal/generic-modal.comp
 import { UserlistComponent } from './users/userlist/userlist.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UsersComponent } from './users/users.component';
+import { AddUserListComponent } from './shared/add-user-list/add-user-list.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UsersComponent } from './users/users.component';
     UserlistComponent,
     AddUserComponent,
     UsersComponent,
+    AddUserListComponent,
     
   ],
   imports: [
