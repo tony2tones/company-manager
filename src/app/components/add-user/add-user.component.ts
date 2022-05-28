@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
 import { UserServices } from 'src/app/users.service';
 
@@ -10,6 +11,7 @@ import { UserServices } from 'src/app/users.service';
 })
 export class AddUserComponent implements OnInit {
   public userForm: FormGroup;
+  public userFormToSubmit: User;
 
   @Input() roomId: string = ''; 
 
@@ -21,18 +23,19 @@ export class AddUserComponent implements OnInit {
 
   createFormGroup() {
     this.userForm = this.formBuilder.group({
-      firstName: new FormControl(['', Validators.required]),
-      lastName: new FormControl(['', Validators.required]),
-      avatar:new FormControl(['', Validators.required]),
+      firstName: new FormControl(['']),
+      lastName: new FormControl(['']),
+      avatar: new FormControl(['']),
     });
 
   }
   
   public addUser() {
-console.log('Submitted forms current value ', this.userForm.value);
+    this.userFormToSubmit = this.userForm.value;
+    console.log('Submitted forms current value ', this.userFormToSubmit);
     if (this.userForm.valid) {
       // this.officeServices.updateOfficeUser(this.userForm.value, this.roomId).subscribe((data) => {
-        this.usersService.addUser(this.userForm).subscribe((data) => {
+        this.usersService.addUser(this.userFormToSubmit).subscribe((data) => {
           console.log('did this work', data);
       }),
         (err) => console.log(err);

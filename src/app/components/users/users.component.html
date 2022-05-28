@@ -8,10 +8,11 @@
   </form>
 </div>
 
-  <div *ngFor="let staff of filteredUserList">
+  <div *ngFor="let staff of filteredUserList; let i = index">
     <div class="user--panel">
       <ul>
         <li>
+          <input type="checkbox" >
           {{ staff.firstName }}
         </li>
         <li>
