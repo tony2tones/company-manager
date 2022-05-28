@@ -17,8 +17,8 @@ export class UserServices {
         return this.http.get(`http://localHost:3000/api/user/${userId}`);
     }
 
-    public addUser(newuser): Observable<any> {
-        return this.http.post('http://localHost:3000/api/user', newuser);
+    public addUser(newuser:User): Observable<any> {
+        return this.http.post('http://localHost:3000/api/addUser', newuser);
     }
 
     public updateUser(edituser: User, userId: string): Observable<any> {
