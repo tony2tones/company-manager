@@ -57,7 +57,7 @@ export class UsersComponent implements OnInit {
   }
 
   public onCheckboxChange(e) {
-    console.log('cheky eer', e.target.value)
+    console.log('cheky eer', e)
     const checkedUserList: FormArray = this.form.get('selectedUsers') as FormArray;
   
     if (e.target.checked) {
