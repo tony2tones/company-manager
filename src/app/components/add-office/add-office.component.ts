@@ -13,6 +13,8 @@ export class AddOfficeComponent implements OnInit {
   public officeProfileForm: FormGroup;
   public userForm: FormGroup;
 
+  public colourMatcher: string = '';
+
   public currentStaffList: User[] = [];
   public newUser: User;
 
@@ -37,16 +39,17 @@ export class AddOfficeComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       avatar: new FormControl('', [Validators.required]),
     });
-
   }
 
   public colourSelected(colour: string) {
+    console.log('color hash', colour);
+    this.colourMatcher = colour;
     this.officeProfileForm.patchValue({
       colourScheme: colour
     });
   }
   
-  public addUser() {
+  public addUser() :void {
     this.newUser = this.userForm.value;
     let newArray = [];
     this.currentStaffList.push(...newArray, this.newUser);
@@ -59,7 +62,7 @@ export class AddOfficeComponent implements OnInit {
 
     if (this.officeProfileForm.valid) {
       this.officeService.addOffice(this.officeProfileForm.value).subscribe((data) => {
-
+        console.log('THIS IS WHAT IS BEING SUBMITTED ', data);
       }),
         (err) => console.log(err);
     }
