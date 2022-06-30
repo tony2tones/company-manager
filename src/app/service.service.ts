@@ -20,7 +20,7 @@ export class OfficeServices {
     }
 
 
-    addOffice(newOffice): Observable<any> {
+    addOffice(newOffice: Office): Observable<any> {
         return this.http.post('http://localHost:3000/api/office', newOffice);
 
     }
