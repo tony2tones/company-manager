@@ -1,27 +1,35 @@
 <div class="user-container">
-<div class="search-field">
-  <form [formGroup]="searchName">
-    <div class="form-group">
-      <label for="searchName">Filter users</label>
-      <input type="text" class="form-control" formControlName="searchterm" />
-    </div>
-  </form>
-</div>
-
-  <div *ngFor="let staff of filteredUserList; let i = index">
-    <div class="user--panel">
-      <ul>
-        <li>
-          <input type="checkbox" >
-          {{ staff.firstName }}
-        </li>
-        <li>
-          {{ staff.lastName }}
-        </li>
-        <li>
-          {{ staff.avatar }}
-        </li>
-      </ul>
-    </div>
+  <div class="search-field">
+    <form [formGroup]="searchName">
+      <div class="form-group">
+        <label for="searchName">Filter users</label>
+        <input type="text" class="form-control" formControlName="searchterm" />
+      </div>
+    </form>
   </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div *ngFor="let staff of filteredUserList; let i = index">
+      <div class="user--panel">
+        <ul>
+          <li>
+            <input
+              type="checkbox"
+              [value]="staff.value"
+              (change)="onCheckboxChange($event)"
+            />
+            {{ staff.firstName }}
+          </li>
+          <li>
+            {{ staff.lastName }}
+          </li>
+          <li>
+            {{ staff.avatar }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
 </div>

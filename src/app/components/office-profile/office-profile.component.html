@@ -1,18 +1,20 @@
-<app-office-room 
-*ngIf="menuToggle"
-[companyName]="office.companyName"
-[officeCapacity]="office.officeCapacity"
-[phoneNumber]="office.phoneNumber"
-[address]="office.address"
-[colourScheme]="office.colourScheme"
-[email]="office.email"
-[officeId]="office._id"
-[menuToggle]="menuToggle"
-></app-office-room>
-<div class="form-group">
-    <button class="" (click)="toggleMenu()" >ADD USER</button>
+<div class="container">
+  <app-office-room
+    [companyName]="office.companyName"
+    [officeCapacity]="office.officeCapacity"
+    [phoneNumber]="office.phoneNumber"
+    [address]="office.address"
+    [colourScheme]="office.colourScheme"
+    [email]="office.email"
+    [officeId]="office._id"
+    [menuToggle]="menuToggle"
+  ></app-office-room>
+  <!-- <div class="form-group">
+    <button class="" (click)="toggleMenu()">ADD USER</button>
+  </div> -->
+
+  <!-- <app-add-user *ngIf="!menuToggle" [roomId]="officeId"></app-add-user> -->
+  <!-- <div class="modal"> -->
+    <app-users></app-users>
+  <!-- </div> -->
 </div>
-
-<app-add-user *ngIf="!menuToggle" [roomId]="officeId"></app-add-user>
-
-<app-userlist></app-userlist>

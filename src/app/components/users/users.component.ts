@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/modals/staff.modal';
 import { UserServices } from 'src/app/users.service';
@@ -12,6 +12,8 @@ import { UserServices } from 'src/app/users.service';
 export class UsersComponent implements OnInit {
  
   public searchName: FormGroup; 
+
+  public form: FormGroup;
   
   public formSubscription: [Subscription?] = [];
 
@@ -21,7 +23,11 @@ export class UsersComponent implements OnInit {
 
   public filteredUserList:User[] = [];
 
-  constructor(private usersService: UserServices, private fb: FormBuilder) { }
+  constructor(private usersService: UserServices, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      selectedUsers: this.fb.array([], [Validators.required])
+    })
+   }
 
   ngOnInit(): void {
     this.usersService.getUsers().subscribe((data:User[]) => {
@@ -48,6 +54,22 @@ export class UsersComponent implements OnInit {
         user.firstName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 ||
         !searchTerm);
       })
+  }
+
+  public onCheckboxChange(e) {
+    console.log('cheky eer', e)
+    const checkedUserList: FormArray = this.form.get('selectedUsers') as FormArray;
+  
+    if (e.target.checked) {
+      checkedUserList.push(new FormControl(e.target.value));
+    } else {
+       const index = checkedUserList.controls.findIndex(x => x.value === e.target.value);
+       checkedUserList.removeAt(index);
+    }
+  }
+
+  submit(){
+    console.log(this.form.value);
   }
 
 }
