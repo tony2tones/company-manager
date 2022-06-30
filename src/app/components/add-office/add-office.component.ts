@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
-// import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-add-office',
@@ -18,7 +18,7 @@ export class AddOfficeComponent implements OnInit {
   public currentStaffList: User[] = [];
   public newUser: User;
 
-  constructor(private officeService: OfficeServices, private fb: FormBuilder) { }
+  constructor(private officeService: OfficeServices, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.createFormGroup();
@@ -61,8 +61,8 @@ export class AddOfficeComponent implements OnInit {
     console.log('details', this.officeProfileForm);
 
     if (this.officeProfileForm.valid) {
-      this.officeService.addOffice(this.officeProfileForm.value).subscribe((data) => {
-        console.log('THIS IS WHAT IS BEING SUBMITTED ', data);
+      this.officeService.addOffice(this.officeProfileForm.value).subscribe(() => {
+        this.router.navigateByUrl('');
       }),
         (err) => console.log(err);
     }
