@@ -13,6 +13,10 @@
   /* background: #E5E5E5; */
 }
 
+body{
+  background-color:#f8fafc;
+}
+
 button {
   width: 232px;
   margin: 1rem;
