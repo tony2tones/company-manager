@@ -153,6 +153,7 @@ deleteUser(lessonIndex: number) {
   public deleteOffice() {
   this.officeService.deleteOffice(this.officeId).subscribe((data) => {
     console.log('resonse', data);
+    this.router.navigateByUrl('');
   }),
     (error) => {
       console.log(error)
