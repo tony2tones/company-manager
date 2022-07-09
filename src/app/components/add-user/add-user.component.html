@@ -1,19 +1,44 @@
-<form [formGroup]="userForm"  >
-  <h1 id="officeProfile">Add new staff member</h1>
-  <div class="form-group">
-    <label for=""></label>
-    <input type="text" class="form-control" formControlName="firstName" name="firstName" placeholder="First name" value="">
-  </div>
-  <div class="form-group">
-    <label for=""></label>
-    <input type="text" class="form-control" formControlName="lastName" name="lastName" placeholder="Last name" value="">
-  </div>
-  <div class="form-group">
-    <label for=""></label>
-    <input type="text" class="form-control" formControlName="avatar" name="avatar" placeholder="Avatar" value="">
-  </div>
-  
-  <div class="form-group ">
-    <button class="" [disabled]="!userForm.valid" (click)="addUser()">ADD USER</button>
+<div class="content">
+  <form [formGroup]="userForm">
+    <h1 id="officeProfile">Add new staff member</h1>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="firstName"
+        name="firstName"
+        placeholder="First name"
+        value=""
+      />
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="lastName"
+        name="lastName"
+        placeholder="Last name"
+        value=""
+      />
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="avatar"
+        name="avatar"
+        placeholder="Avatar"
+        value=""
+      />
+    </div>
+
+    <div class="form-group">
+      <button class="" [disabled]="!userForm.valid" (click)="addUser()">
+        ADD USER
+      </button>
+    </div>
+  </form>
 </div>
-</form>

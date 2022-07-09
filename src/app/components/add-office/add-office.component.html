@@ -1,157 +1,163 @@
-<form [formGroup]="officeProfileForm">
-  <h1 id="officeProfile">New office</h1>
-  <div class="form-group">
-    <label for=""></label>
+<div class="content">
+  <form [formGroup]="officeProfileForm">
+    <h1 id="officeProfile">New office</h1>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="companyName"
+        name="companyName"
+        placeholder="Office Name"
+        value=""
+      />
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="address"
+        name="address"
+        placeholder="Physical Address"
+        value=""
+      />
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="email"
+        name="email"
+        placeholder="Email Address"
+        value=""
+      />
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phoneNumber"
+        name="staff"
+        placeholder="Phone Number"
+        value=""
+      />
+    </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="officeCapacity"
+        name="officeCapacity"
+        placeholder="Maximum Capacity"
+        value=""
+      />
+    </div>
+
+    <h3>Office Colour</h3>
+    <div class="colour-scheme">
+      <div
+        class="colour-1 dot"
+        [ngClass]="{ active: colourMatcher === '#FFBE0B' }"
+        (click)="colourSelected('#FFBE0B')"
+      ></div>
+      <div
+        class="colour-2 dot"
+        [ngClass]="{ active: colourMatcher === '#FF9B71' }"
+        (click)="colourSelected('#FF9B71')"
+      ></div>
+      <div
+        class="colour-3 dot"
+        [ngClass]="{ active: colourMatcher === '#FB5607' }"
+        (click)="colourSelected('#FB5607')"
+      ></div>
+      <div
+        class="colour-4 dot"
+        [ngClass]="{ active: colourMatcher === '#97512C' }"
+        (click)="colourSelected('#97512C')"
+      ></div>
+      <div
+        class="colour-5 dot"
+        [ngClass]="{ active: colourMatcher === '#DBBADD' }"
+        (click)="colourSelected('#DBBADD')"
+      ></div>
+      <div
+        class="colour-6 dot"
+        [ngClass]="{ active: colourMatcher === '#FF006E' }"
+        (click)="colourSelected('#FF006E')"
+      ></div>
+    </div>
+    <div class="colour-row-2">
+      <div
+        class="colour-7 dot"
+        [ngClass]="{ active: colourMatcher === '#A9F0D1' }"
+        (click)="colourSelected('#A9F0D1')"
+      ></div>
+      <div
+        class="colour-8 dot"
+        [ngClass]="{ active: colourMatcher === '#00B402' }"
+        (click)="colourSelected('#00B402')"
+      ></div>
+      <div
+        class="colour-9 dot"
+        [ngClass]="{ active: colourMatcher === '#489DDA' }"
+        (click)="colourSelected('#489DDA')"
+      ></div>
+      <div
+        class="colour-10 dot"
+        [ngClass]="{ active: colourMatcher === '#0072E8' }"
+        (click)="colourSelected('#0072E8')"
+      ></div>
+      <div
+        class="colour-11 dot"
+        [ngClass]="{ active: colourMatcher === '#8338EC' }"
+        (click)="colourSelected('#8338EC')"
+      ></div>
+    </div>
+
+    <div class="form-group">
+      <button
+        class=""
+        [disabled]="!officeProfileForm.valid"
+        (click)="onSubmit()"
+      >
+        ADD OFFICE
+      </button>
+    </div>
+  </form>
+
+  <form [formGroup]="userForm">
+    <!-- <div *ngFor="let staff of userForm"> -->
+    <!-- <div class="form-group"> -->
     <input
       type="text"
       class="form-control"
-      formControlName="companyName"
-      name="companyName"
-      placeholder="Office Name"
-      value=""
+      id="firstName"
+      type="text"
+      formControlName="firstName"
     />
-  </div>
-  <div class="form-group">
-    <label for=""></label>
     <input
       type="text"
       class="form-control"
-      formControlName="address"
-      name="address"
-      placeholder="Physical Address"
-      value=""
+      id="lastName"
+      type="text"
+      formControlName="lastName"
     />
-  </div>
-  <div class="form-group">
-    <label for=""></label>
     <input
       type="text"
       class="form-control"
-      formControlName="email"
-      name="email"
-      placeholder="Email Address"
-      value=""
-    />
-  </div>
-  <div class="form-group">
-    <label for=""></label>
-    <input
+      id="avatar"
       type="text"
-      class="form-control"
-      formControlName="phoneNumber"
-      name="staff"
-      placeholder="Phone Number"
-      value=""
+      formControlName="avatar"
     />
-  </div>
-  <div class="form-group">
-    <label for=""></label>
-    <input
-      type="number"
-      class="form-control"
-      formControlName="officeCapacity"
-      name="officeCapacity"
-      placeholder="Maximum Capacity"
-      value=""
-    />
-  </div>
-
-  <h3>Office Colour</h3>
-  <div class="colour-scheme">
-    <div
-      class="colour-1 dot"
-      [ngClass]="{ active: colourMatcher === '#FFBE0B' }"
-      (click)="colourSelected('#FFBE0B')"
-    ></div>
-    <div
-      class="colour-2 dot"
-      [ngClass]="{ active: colourMatcher === '#FF9B71' }"
-      (click)="colourSelected('#FF9B71')"
-    ></div>
-    <div
-      class="colour-3 dot"
-      [ngClass]="{ active: colourMatcher === '#FB5607' }"
-      (click)="colourSelected('#FB5607')"
-    ></div>
-    <div
-      class="colour-4 dot"
-      [ngClass]="{ active: colourMatcher === '#97512C' }"
-      (click)="colourSelected('#97512C')"
-    ></div>
-    <div
-      class="colour-5 dot"
-      [ngClass]="{ active: colourMatcher === '#DBBADD' }"
-      (click)="colourSelected('#DBBADD')"
-    ></div>
-    <div
-      class="colour-6 dot"
-      [ngClass]="{ active: colourMatcher === '#FF006E' }"
-      (click)="colourSelected('#FF006E')"
-    ></div>
-  </div>
-  <div class="colour-row-2">
-    <div
-      class="colour-7 dot"
-      [ngClass]="{ active: colourMatcher === '#A9F0D1' }"
-      (click)="colourSelected('#A9F0D1')"
-    ></div>
-    <div
-      class="colour-8 dot"
-      [ngClass]="{ active: colourMatcher === '#00B402' }"
-      (click)="colourSelected('#00B402')"
-    ></div>
-    <div
-      class="colour-9 dot"
-      [ngClass]="{ active: colourMatcher === '#489DDA' }"
-      (click)="colourSelected('#489DDA')"
-    ></div>
-    <div
-      class="colour-10 dot"
-      [ngClass]="{ active: colourMatcher === '#0072E8' }"
-      (click)="colourSelected('#0072E8')"
-    ></div>
-    <div
-      class="colour-11 dot"
-      [ngClass]="{ active: colourMatcher === '#8338EC' }"
-      (click)="colourSelected('#8338EC')"
-    ></div>
-  </div>
+  </form>
 
   <div class="form-group">
-    <button class="" [disabled]="!officeProfileForm.valid" (click)="onSubmit()">
-      ADD OFFICE
-    </button>
-  </div>
-</form>
-
-<form [formGroup]="userForm">
-  <!-- <div *ngFor="let staff of userForm"> -->
-  <!-- <div class="form-group"> -->
-  <input
-    type="text"
-    class="form-control"
-    id="firstName"
-    type="text"
-    formControlName="firstName"
-  />
-  <input
-    type="text"
-    class="form-control"
-    id="lastName"
-    type="text"
-    formControlName="lastName"
-  />
-  <input
-    type="text"
-    class="form-control"
-    id="avatar"
-    type="text"
-    formControlName="avatar"
-  />
-</form>
-
-<div class="form-group">
-  <div class="btn-layout">
-    <button class="" (click)="addUser()">ADD USER</button>
+    <div class="btn-layout">
+      <button class="" (click)="addUser()">ADD USER</button>
+    </div>
   </div>
 </div>
