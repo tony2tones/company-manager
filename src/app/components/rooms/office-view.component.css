@@ -1,5 +1,6 @@
 .container {
     /* display: flex; */
+    
     flex-wrap: wrap;
     align-items: flex-start;
 }
@@ -7,4 +8,5 @@
 .content {
     display: flex;
     flex-wrap: wrap;
+    width: 1315px;
 }
