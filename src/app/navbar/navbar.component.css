@@ -11,21 +11,19 @@
 }
 
 ul > li {
-  margin: 1rem;
-  padding-left: 24px;
-  width: 6rem;
+  padding: 2rem;
+  width: fit-content;
   height: 2rem;
   border-radius: 5.5px;
-  padding-top: 3px;
   cursor: pointer;
 }
-.navBar > li:hover {
+ul li:hover {
   background: rgb(71, 71, 70);
   color: ivory;
 }
 
 .active {
-  background: rgb(146, 146, 138);
+  background: rgb(71, 71, 70);
   font-weight: 600;
   color: rgb(31, 31, 39);
 }
