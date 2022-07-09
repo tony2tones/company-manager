@@ -12,6 +12,8 @@ import { OfficeServices } from 'src/app/service.service';
 export class OfficeProfileComponent implements OnInit {
   public routePasser: string = '';
 
+  public colourString: string = '';
+
   public officeId: string = '';
 
   public office: Office;
@@ -28,6 +30,7 @@ export class OfficeProfileComponent implements OnInit {
     this.activeRoute.params.subscribe((room) => {
       const id = room.roomId;
       this.officeId = id;
+      
       if (this.officeId) {
         console.log('this roomId', this.officeId);
         this.getOfficeInfo();
@@ -50,9 +53,8 @@ export class OfficeProfileComponent implements OnInit {
   public getOfficeInfo(): void {
     this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
       console.log(formData);
-      this.office = formData[0];
-      // this.editOffice(formData);
-      // console.log('this should be one office ', this.editOfficeProfileForm);
+      [this.office] = formData;
+      this.colourString = this.office.colourScheme.substring(1);
 
     })
   }
