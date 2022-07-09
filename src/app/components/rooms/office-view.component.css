@@ -1,5 +1,10 @@
 .container {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     align-items: flex-start;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
 }
