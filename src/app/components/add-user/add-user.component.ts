@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/modals/staff.modal';
-import { OfficeServices } from 'src/app/service.service';
 import { UserServices } from 'src/app/users.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class AddUserComponent implements OnInit {
 
   @Input() roomId: string = ''; 
 
-  constructor(private usersService: UserServices, private formBuilder: FormBuilder) { }
+  constructor(private usersService: UserServices, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.createFormGroup();
@@ -37,6 +37,7 @@ export class AddUserComponent implements OnInit {
       // this.officeServices.updateOfficeUser(this.userForm.value, this.roomId).subscribe((data) => {
         this.usersService.addUser(this.userFormToSubmit).subscribe((data) => {
           console.log('did this work', data);
+          this.router.navigateByUrl('');
       }),
         (err) => console.log(err);
     }
