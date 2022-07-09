@@ -1,11 +1,17 @@
-.user-container{
+.content{
     text-align: center;
+    width: 420px;
+    margin: auto;
 }
 
 .user--panel {
     width: 23rem;
     display: inline-block;
 
+}
+.user--container {
+    overflow: auto;
+    height: 600px;
 }
 
 .search-field {
@@ -18,10 +24,11 @@
     justify-content: space-around;
     background-color: rgb(232, 233, 234);
     border-radius: 15px;
-    padding:2rem;
+    padding:1.5rem;
 } 
 
 li {
     list-style: none;
     justify-content:space-between;
 }
+
