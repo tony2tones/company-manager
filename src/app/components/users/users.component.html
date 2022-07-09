@@ -1,4 +1,4 @@
-<div class="user-container">
+<div class="content">
   <div class="search-field">
     <form [formGroup]="searchName">
       <div class="form-group">
@@ -8,28 +8,31 @@
     </form>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <div *ngFor="let staff of filteredUserList; let i = index">
-      <div class="user--panel">
-        <ul>
-          <li>
-            <input
-              type="checkbox"
-              [value]="staff.value"
-              (change)="onCheckboxChange($event)"
-            />
-            {{ staff.firstName }}
-          </li>
-          <li>
-            {{ staff.lastName }}
-          </li>
-          <li>
-            {{ staff.avatar }}
-          </li>
-        </ul>
+  <div class="user--container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div *ngFor="let staff of filteredUserList; let i = index">
+        <div class="user--panel">
+          <ul>
+            <li>
+              <input
+                type="checkbox"
+                [value]="staff.value"
+                (change)="onCheckboxChange($event)"
+              />
+              {{ staff.firstName }}
+            </li>
+            <li>
+              {{ staff.lastName }}
+            </li>
+            <li>
+              {{ staff.avatar }}
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
-  </form>
+    </form>
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+    Submit
+  </button>
 </div>
