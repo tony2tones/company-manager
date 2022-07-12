@@ -6,7 +6,6 @@ import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-edit-office',
   templateUrl: './edit-office.component.html',
@@ -54,7 +53,7 @@ export class EditOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      users: []
+      staff: []
     });
     this.userForm = this.fb.group({
       firstName: new FormControl('', [Validators.required]),
