@@ -22,7 +22,7 @@
 .user--panel > ul {
     display: flex;
     justify-content: space-around;
-    background-color: rgb(232, 233, 234);
+    background-color: aliceblue;
     border-radius: 15px;
     padding:1.5rem;
 } 
