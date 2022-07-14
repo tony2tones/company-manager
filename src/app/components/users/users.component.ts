@@ -65,11 +65,7 @@ export class UsersComponent implements OnInit {
   }
 
   public addToList() {
-    console.log('check one Filtered User list', this.filteredUserList);
-    console.log('check one');
-    console.log('check one');
-    console.log('check one');
-    console.log('THE MAIN OKE',this.theMainGuy = this.filteredUserList.filter((user => user.checked)));
+    console.log('check one Filtered User list', this.theMainGuy);
   }
 
 
