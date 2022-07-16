@@ -21,6 +21,7 @@ export class EditOfficeComponent implements OnInit {
   public newUser: User;
   public staffList:FormGroup;
   selectedOffice: Office;
+  public selectedUsers: User[] = [];
   newArray: any;
 
   constructor(
@@ -73,8 +74,10 @@ export class EditOfficeComponent implements OnInit {
     console.log('Staff list ', this.editOfficeProfileForm);
   }
 
-  public retrieveData($event) {
+  public retrieveData($event:User[]): void {
     console.log('what is in here', $event);
+    this.selectedUsers = $event;
+
   }  
 
   // newSkill(): FormGroup {

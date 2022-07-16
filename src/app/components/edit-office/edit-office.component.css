@@ -4,7 +4,7 @@
 }
 
 .content {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: row;
   font-family: sans-serif;
@@ -39,7 +39,7 @@
 
 .btn-layout {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -192,7 +192,8 @@ button {
 }
 
 .footer-panel{
-  position: relative;
+  position: absolute;
   display: flex;
+  width: 100%;
   display: inline-block;
 }
