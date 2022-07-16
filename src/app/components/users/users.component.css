@@ -22,9 +22,21 @@
 .user--panel > ul {
     display: flex;
     justify-content: space-around;
+    align-items: baseline;
     background-color: aliceblue;
     border-radius: 15px;
     padding:1.5rem;
+} 
+
+.user--panel > ul.checked {
+    background-color: #90c5f0;
+}
+.user--panel > ul.checked:hover{
+    background-color: #71a2ca;
+}
+.user--panel > ul:hover{
+    cursor: pointer;
+    background-color: #90bee3;
 } 
 
 li {
