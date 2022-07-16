@@ -76,7 +76,9 @@ export class EditOfficeComponent implements OnInit {
     console.log('Staff list ', this.editOfficeProfileForm);
   }
 
-  
+  public retrieveData($event) {
+    console.log('what is in here', $event);
+  }  
 
   // newSkill(): FormGroup {
   //   return this.formBuilder.group({
