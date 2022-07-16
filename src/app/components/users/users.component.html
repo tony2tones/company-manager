@@ -10,15 +10,15 @@
 
   <div class="user--container">
     <form [formGroup]="form" (ngSubmit)="submit()">
-      <ng-contsiner *ngFor="let staff of filteredUserList; let i = index">
+      <ng-container *ngFor="let staff of filteredUserList; let i = index">
         <div class="user--panel">
-          <ul>
+          <ul (click)="onCheckboxChange(staff)" [ngClass]="{'checked': staff?.checked }">
             <li>
-              <input
+              <!-- <input
                 type="checkbox"
                 [value]="staff.value"
                 (change)="onCheckboxChange(staff)"
-              />
+              /> -->
               {{ staff.firstName }}
             </li>
             <li>
@@ -29,7 +29,7 @@
             </li>
           </ul>
         </div>
-      </ng-contsiner>
+      </ng-container>
     </form>
   </div>
   <button class="btn btn-primary" type="submit" (click)="addToList()">
