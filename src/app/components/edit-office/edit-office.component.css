@@ -1,14 +1,17 @@
 #officeProfile {
-  /* text-align: center; */
+  text-align: center;
   font-size: 21px;
 }
 
 .content {
+  position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-family: sans-serif;
 }
-
+.edit-form-group {
+  padding:20px;
+}
 .form-group {
   margin: 0px;
   text-align: center;
@@ -27,6 +30,7 @@
 
 .form-control {
   margin: 0.5rem;
+  display: inline-block;
   padding: 1rem;
   width: 340px;
   border: none;
@@ -157,10 +161,6 @@ button:disabled {
   background-color: #8338ec;
 }
 
-form {
-  align-items: center;
-}
-
 button {
   background: #489dda;
   cursor: pointer;
@@ -189,4 +189,10 @@ button {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+}
+
+.footer-panel{
+  position: relative;
+  display: flex;
+  display: inline-block;
 }

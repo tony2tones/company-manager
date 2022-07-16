@@ -60,9 +60,6 @@ export class EditOfficeComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       avatar: new FormControl('', [Validators.required]),
     });
-    console.log(this.userForm);
-    //  staff: this.fb.array([])
-    // );
   }
   get getStaff(): FormArray {
     return this.editOfficeProfileForm.get["users"] as FormArray;

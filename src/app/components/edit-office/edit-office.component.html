@@ -1,5 +1,6 @@
 <div class="content">
-  <h1 id="officeProfile">Edit office</h1>
+  <div class="edit-form-group">
+    <h1 id="officeProfile">Edit office</h1>
   <form [formGroup]="editOfficeProfileForm">
     <div class="form-group">
       <label for=""></label>
@@ -56,6 +57,7 @@
         value=""
       />
     </div>
+  
     <div>
       <div class="colour-title">
         <h3>Office Colour</h3>
@@ -121,24 +123,8 @@
       </div>
     </div>
   </form>
-  <div class="form-group">
-    <div class="btn-layout">
-      <button
-        class=""
-        [disabled]="!editOfficeProfileForm.valid"
-        (click)="onSubmit()"
-      >
-        UPDATE OFFICE
-      </button>
-      <button
-        class=""
-        [disabled]="!editOfficeProfileForm.valid"
-        (click)="deleteOffice()"
-      >
-        DELETE OFFICE
-      </button>
-    </div>
-  </div>
+</div>
+ 
   <app-users (usersEmitter)="retrieveData($event)"></app-users>
 </div>
   <!-- <form [formGroup]="userForm"> -->
@@ -205,3 +191,22 @@
   </div>
 </div>
 </form> -->
+
+<div class="footer-panel">
+  <div class="btn-layout">
+    <button
+      class=""
+      [disabled]="!editOfficeProfileForm.valid"
+      (click)="onSubmit()"
+    >
+      UPDATE OFFICE
+    </button>
+    <button
+      class=""
+      [disabled]="!editOfficeProfileForm.valid"
+      (click)="deleteOffice()"
+    >
+      DELETE OFFICE
+    </button>
+  </div>
+</div>

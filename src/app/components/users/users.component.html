@@ -14,11 +14,6 @@
         <div class="user--panel">
           <ul (click)="onCheckboxChange(staff)" [ngClass]="{'checked': staff?.checked }">
             <li>
-              <!-- <input
-                type="checkbox"
-                [value]="staff.value"
-                (change)="onCheckboxChange(staff)"
-              /> -->
               {{ staff.firstName }}
             </li>
             <li>
