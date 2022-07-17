@@ -54,9 +54,11 @@ export class EditOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: []
+      staff: [],
     });
     this.userForm = this.fb.group({
+      _id: new FormControl('', [Validators.required]),
+      checked: new FormControl('', [Validators.required]),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       avatar: new FormControl('', [Validators.required]),
@@ -70,13 +72,16 @@ export class EditOfficeComponent implements OnInit {
     this.newUser = this.userForm.value;
     let newArray = [];
     this.currentStaffList.push(...newArray, this.newUser);
-    this.editOfficeProfileForm.controls["users"].patchValue(this.currentStaffList);
+    this.userForm.controls["users"].patchValue(this.currentStaffList);
     console.log('Staff list ', this.editOfficeProfileForm);
   }
 
-  public retrieveData($event:User[]): void {
-    console.log('what is in here', $event);
-    this.selectedUsers = $event;
+  public retrieveData(users:User[]): void {
+    this.selectedUsers = users;
+    // this.editOfficeProfileForm['staff'].push(this.selectedUsers);
+    this.editOfficeProfileForm['staff'].setValue(this.selectedUsers[0]);
+    console.log('what is in staff Value? ', this.editOfficeProfileForm['staff'].value);
+    console.log('what is in here', this.editOfficeProfileForm);
 
   }  
 
@@ -127,9 +132,6 @@ deleteUser(lessonIndex: number) {
   this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
     this.editOffice(formData);
     this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
-    console.log('this should be one office ', this.colourHash);
-    console.log('this should be one office  form value', this.editOfficeProfileForm.controls['colourScheme'].value);
-    console.log('this should be one office ', this.colourHash);
   })
 }
 
@@ -153,7 +155,6 @@ deleteUser(lessonIndex: number) {
 
   public deleteOffice() {
   this.officeService.deleteOffice(this.officeId).subscribe((data) => {
-    console.log('resonse', data);
     this.router.navigateByUrl('');
   }),
     (error) => {
@@ -162,15 +163,18 @@ deleteUser(lessonIndex: number) {
 }
 
   public onSubmit() {
-  console.log(this.editOfficeProfileForm)
-  // this.editOfficeProfileForm.controls['staff'] = [...this.currentStaffList];
-  if (this.editOfficeProfileForm.valid) {
-    this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
-      console.log('speak to me ', data);
-      this.router.navigate(['/']);
-    }),
-      (err) => console.log(err);
-  }
+    this.editOfficeProfileForm.patchValue(this.selectedUsers);
+  console.log('The submitted form', this.editOfficeProfileForm);
+  console.log('USER FORM', this.userForm);
+  // console.log('Selected USERS', this.userForm = this.selectedUsers);
+  // this.editOfficeProfileForm = [...this.currentStaffList];
+  // if (this.editOfficeProfileForm.valid) {
+  //   this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
+  //     console.log('speak to me ', data);
+  //     this.router.navigate(['/']);
+  //   }),
+  //     (err) => console.log(err);
+  // }
 }
 
 }

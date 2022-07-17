@@ -122,7 +122,21 @@
         ></div>
       </div>
     </div>
-    {{selectedUsers | json}}
+    <ng-container *ngFor="let staff of selectedUsers">
+      <div class="user--panel">
+        <ul [ngClass]="{'checked': staff?.checked }">
+          <li>
+            {{ staff.firstName }}
+          </li>
+          <li>
+            {{ staff.lastName }}
+          </li>
+          <li>
+            <img src="../../../assets/avatars/avatar{{staff.avatar}}.png" alt="">
+          </li>
+        </ul>
+      </div>
+    </ng-container>
   </form>
 </div>
  
