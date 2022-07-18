@@ -1,7 +1,8 @@
 .content{
     text-align: center;
     width: 420px;
-    margin: auto;
+    margin:auto;
+    
 }
 
 .user--panel {
@@ -11,7 +12,7 @@
 }
 .user--container {
     overflow: auto;
-    height: 600px;
+    height: 64vh;
 }
 
 .search-field {

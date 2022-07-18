@@ -32,7 +32,6 @@ export class OfficeComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params) => {
-      console.log(params);
     });
   }
   public navButton(){
@@ -40,8 +39,6 @@ export class OfficeComponent implements OnInit {
   }
 
   public editOffice($event) {
-    console.log(' this has been clicked ');
-    console.log($event, this.officeId);
     this.router.navigate([`office-view/edit-office/${this.officeId}`]);
   }
 

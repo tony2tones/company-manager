@@ -1,5 +1,6 @@
 <div class="content">
-  <h1 id="officeProfile">Edit office</h1>
+  <div class="edit-form-group">
+    <h1 id="officeProfile">Edit office</h1>
   <form [formGroup]="editOfficeProfileForm">
     <div class="form-group">
       <label for=""></label>
@@ -56,6 +57,7 @@
         value=""
       />
     </div>
+  
     <div>
       <div class="colour-title">
         <h3>Office Colour</h3>
@@ -120,25 +122,27 @@
         ></div>
       </div>
     </div>
-  </form>
-  <div class="form-group">
-    <div class="btn-layout">
-      <button
-        class=""
-        [disabled]="!editOfficeProfileForm.valid"
-        (click)="onSubmit()"
-      >
-        UPDATE OFFICE
-      </button>
-      <button
-        class=""
-        [disabled]="!editOfficeProfileForm.valid"
-        (click)="deleteOffice()"
-      >
-        DELETE OFFICE
-      </button>
-    </div>
+    <div *ngIf="selectedUsers.length">
+      <h3>Selected users</h3>
+    <ng-container *ngFor="let staff of selectedUsers">
+      <div class="user--panel">
+        <ul [ngClass]="{'checked': staff?.checked }">
+          <li>
+            {{ staff.firstName }}
+          </li>
+          <li>
+            {{ staff.lastName }}
+          </li>
+          <li>
+            <img src="../../../assets/avatars/avatar{{staff.avatar}}.png" alt="">
+          </li>
+        </ul>
+      </div>
+    </ng-container>
   </div>
+  </form>
+</div>
+ 
   <app-users (usersEmitter)="retrieveData($event)"></app-users>
 </div>
   <!-- <form [formGroup]="userForm"> -->
@@ -205,3 +209,22 @@
   </div>
 </div>
 </form> -->
+
+<div class="footer-panel">
+  <div class="btn-layout">
+    <button
+      class=""
+      [disabled]="!editOfficeProfileForm.valid"
+      (click)="onSubmit()"
+    >
+      UPDATE OFFICE
+    </button>
+    <button
+      class=""
+      [disabled]="!editOfficeProfileForm.valid"
+      (click)="deleteOffice()"
+    >
+      DELETE OFFICE
+    </button>
+  </div>
+</div>

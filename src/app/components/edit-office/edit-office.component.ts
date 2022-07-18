@@ -21,6 +21,7 @@ export class EditOfficeComponent implements OnInit {
   public newUser: User;
   public staffList:FormGroup;
   selectedOffice: Office;
+  public selectedUsers: User[] = [];
   newArray: any;
 
   constructor(
@@ -53,16 +54,15 @@ export class EditOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: []
+      staff: [],
     });
     this.userForm = this.fb.group({
+      _id: new FormControl('', [Validators.required]),
+      checked: new FormControl('', [Validators.required]),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       avatar: new FormControl('', [Validators.required]),
     });
-    console.log(this.userForm);
-    //  staff: this.fb.array([])
-    // );
   }
   get getStaff(): FormArray {
     return this.editOfficeProfileForm.get["users"] as FormArray;
@@ -72,39 +72,19 @@ export class EditOfficeComponent implements OnInit {
     this.newUser = this.userForm.value;
     let newArray = [];
     this.currentStaffList.push(...newArray, this.newUser);
-    this.editOfficeProfileForm.controls["users"].patchValue(this.currentStaffList);
+    this.userForm.controls["users"].patchValue(this.currentStaffList);
     console.log('Staff list ', this.editOfficeProfileForm);
   }
 
-  public retrieveData($event) {
-    console.log('what is in here', $event);
+  public retrieveData(users:User[]): void {
+    this.selectedUsers = users;
+    // this.editOfficeProfileForm['staff'].push(this.selectedUsers);
+    this.editOfficeProfileForm['staff'].setValue(this.selectedUsers[0]);
+    console.log('what is in staff Value? ', this.editOfficeProfileForm['staff'].value);
+    console.log('what is in here', this.editOfficeProfileForm);
+
   }  
 
-  // newSkill(): FormGroup {
-  //   return this.formBuilder.group({
-  //     firstName: ['', Validators.required],
-  //     lastName: ['', Validators.required],
-  //     avatar: [''],
-  //   })
-  // }
-
-
-  //   const modalReff = this.modalService.open(GenericModalComponent, {size: 'sm'});
-  //   const componentInstance = modalReff.componentInstance as GenericModalComponent;
-  // ({
-  //   firstName: ['', Validators.required],
-  //   lastName: ['', Validators.required],
-  //   avatar: [''],
-  //   componentInstance.title = 'Add User';
-    // const userForm = this.formBuilder.group({
-    //   firstName: ['', Validators.required],
-    //   lastName: ['', Validators.required],
-    //   avatar: [''],
-    // });
-
-    // this.currentStaffList.push(this.staff.value);
-//     console.log('Staff in? ', this.editOfficeProfileForm);
-// }
 
 deleteUser(lessonIndex: number) {
   // this.staff.removeAt(lessonIndex);
@@ -127,14 +107,10 @@ deleteUser(lessonIndex: number) {
   this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
     this.editOffice(formData);
     this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
-    console.log('this should be one office ', this.colourHash);
-    console.log('this should be one office  form value', this.editOfficeProfileForm.controls['colourScheme'].value);
-    console.log('this should be one office ', this.colourHash);
   })
 }
 
   public editOffice(office: Office) {
-  console.log('EDIT OFFICE IN QUESTION ',office);
   this.colourHash = office.colourScheme;
   const editOffice = office[0];
   this.editOfficeProfileForm.patchValue({
@@ -153,7 +129,6 @@ deleteUser(lessonIndex: number) {
 
   public deleteOffice() {
   this.officeService.deleteOffice(this.officeId).subscribe((data) => {
-    console.log('resonse', data);
     this.router.navigateByUrl('');
   }),
     (error) => {
@@ -162,11 +137,8 @@ deleteUser(lessonIndex: number) {
 }
 
   public onSubmit() {
-  console.log(this.editOfficeProfileForm)
-  // this.editOfficeProfileForm.controls['staff'] = [...this.currentStaffList];
   if (this.editOfficeProfileForm.valid) {
     this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
-      console.log('speak to me ', data);
       this.router.navigate(['/']);
     }),
       (err) => console.log(err);
