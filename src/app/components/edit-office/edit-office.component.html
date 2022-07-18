@@ -122,6 +122,8 @@
         ></div>
       </div>
     </div>
+    <div *ngIf="selectedUsers.length">
+      <h3>Selected users</h3>
     <ng-container *ngFor="let staff of selectedUsers">
       <div class="user--panel">
         <ul [ngClass]="{'checked': staff?.checked }">
@@ -137,6 +139,7 @@
         </ul>
       </div>
     </ng-container>
+  </div>
   </form>
 </div>
  

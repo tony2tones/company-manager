@@ -85,31 +85,6 @@ export class EditOfficeComponent implements OnInit {
 
   }  
 
-  // newSkill(): FormGroup {
-  //   return this.formBuilder.group({
-  //     firstName: ['', Validators.required],
-  //     lastName: ['', Validators.required],
-  //     avatar: [''],
-  //   })
-  // }
-
-
-  //   const modalReff = this.modalService.open(GenericModalComponent, {size: 'sm'});
-  //   const componentInstance = modalReff.componentInstance as GenericModalComponent;
-  // ({
-  //   firstName: ['', Validators.required],
-  //   lastName: ['', Validators.required],
-  //   avatar: [''],
-  //   componentInstance.title = 'Add User';
-    // const userForm = this.formBuilder.group({
-    //   firstName: ['', Validators.required],
-    //   lastName: ['', Validators.required],
-    //   avatar: [''],
-    // });
-
-    // this.currentStaffList.push(this.staff.value);
-//     console.log('Staff in? ', this.editOfficeProfileForm);
-// }
 
 deleteUser(lessonIndex: number) {
   // this.staff.removeAt(lessonIndex);
@@ -136,7 +111,6 @@ deleteUser(lessonIndex: number) {
 }
 
   public editOffice(office: Office) {
-  console.log('EDIT OFFICE IN QUESTION ',office);
   this.colourHash = office.colourScheme;
   const editOffice = office[0];
   this.editOfficeProfileForm.patchValue({
@@ -163,18 +137,12 @@ deleteUser(lessonIndex: number) {
 }
 
   public onSubmit() {
-    this.editOfficeProfileForm.patchValue(this.selectedUsers);
-  console.log('The submitted form', this.editOfficeProfileForm);
-  console.log('USER FORM', this.userForm);
-  // console.log('Selected USERS', this.userForm = this.selectedUsers);
-  // this.editOfficeProfileForm = [...this.currentStaffList];
-  // if (this.editOfficeProfileForm.valid) {
-  //   this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
-  //     console.log('speak to me ', data);
-  //     this.router.navigate(['/']);
-  //   }),
-  //     (err) => console.log(err);
-  // }
+  if (this.editOfficeProfileForm.valid) {
+    this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
+      this.router.navigate(['/']);
+    }),
+      (err) => console.log(err);
+  }
 }
 
 }

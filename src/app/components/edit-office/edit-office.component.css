@@ -7,6 +7,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   font-family: sans-serif;
 }
 .edit-form-group {
@@ -194,8 +195,8 @@ button {
 .footer-panel{
   position: absolute;
   display: flex;
+  justify-content: center;
   width: 100%;
-  display: inline-block;
 }
 
 
