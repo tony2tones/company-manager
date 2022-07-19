@@ -24,8 +24,8 @@ const officeProfileSchema = mongoose.Schema({
         type: String,
         require: false,
     },
-    staff: {
-        type: Array,
+    users: {
+        type: [Object],
         require: false,
     }
 });

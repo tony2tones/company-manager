@@ -72,7 +72,7 @@ router.post('/office', (req, res, next) => {
         officeCapacity: req.body.officeCapacity,
         address: req.body.address,
         colourScheme: req.body.colourScheme,
-        staff: req.body.staff,
+        users: req.body.users,
     });
 
     newOffice.save((err, office) => {
@@ -94,7 +94,7 @@ router.put('/office/:id', (req, res, next) => {
             officeCapacity: req.body.officeCapacity,
             address: req.body.address,
             colourScheme: req.body.colourScheme,
-            staff: req.body.staff,
+            users: req.body.users,
         }
     },
         function (err, office) {
@@ -113,7 +113,7 @@ router.put('/office/:id/user', (req, res, next) => {
     console.log('your Request: ',req.body.id);
     Office.findOneAndUpdate({ _id: req.params.id }, {
         $set: {
-            staff: req.body.staff,
+            users: req.body.users,
         }
     },
         function (err, office) {
