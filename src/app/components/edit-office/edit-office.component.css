@@ -1,21 +1,20 @@
 #officeProfile {
   text-align: center;
-  font-size: 21px;
+}
+
+.container{
+  position: relative;
+  min-height: 100vh;
 }
 
 .content {
-  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-family: sans-serif;
+
 }
 .edit-form-group {
-  padding:20px;
-}
-.form-group {
-  margin: 0px;
-  text-align: center;
+  padding-right: 15px;
 }
 
 .staff-container {
@@ -122,8 +121,6 @@ button:disabled {
 
 .colour-banner {
   width: 1rem;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .colour-banner-FFBE0B {
@@ -192,13 +189,20 @@ button {
   z-index: 5;
 }
 
-.footer-panel{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.footer-panel {
+  position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4.5rem;
+    background-color: #fff;
 }
 
+.btn-layout {
+  display: flex;
+  justify-content: center;
+
+}
 
 .user--panel > ul {
   display: flex;
@@ -206,21 +210,21 @@ button {
   align-items: baseline;
   background-color: aliceblue;
   border-radius: 15px;
-  padding:1.5rem;
-} 
+  padding: 1.5rem;
+}
 
 .user--panel > ul.checked {
   background-color: #90c5f0;
 }
-.user--panel > ul.checked:hover{
+.user--panel > ul.checked:hover {
   background-color: #71a2ca;
 }
-.user--panel > ul:hover{
+.user--panel > ul:hover {
   cursor: pointer;
   background-color: #90bee3;
-} 
+}
 
 li {
   list-style: none;
-  justify-content:space-between;
+  justify-content: space-between;
 }
