@@ -9,6 +9,7 @@
   border: solid 1px #e8f3fc;
   background: #ffffff;
 }
+
 .row {
   display:flex;
 }
@@ -115,7 +116,7 @@
 .pen-edit {
   position: absolute;
   top: 10%;
-  left: 90%;
+  left: 88%;
 }
 
 .pen-edit:hover{

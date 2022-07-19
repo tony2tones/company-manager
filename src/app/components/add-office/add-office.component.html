@@ -40,7 +40,7 @@
         type="text"
         class="form-control"
         formControlName="phoneNumber"
-        name="staff"
+        name="phoneNumber"
         placeholder="Phone Number"
         value=""
       />
@@ -120,44 +120,10 @@
 
     <div class="form-group">
       <button
-        class=""
-        [disabled]="!officeProfileForm.valid"
         (click)="onSubmit()"
       >
         ADD OFFICE
       </button>
     </div>
   </form>
-
-  <form [formGroup]="userForm">
-    <!-- <div *ngFor="let staff of userForm"> -->
-    <!-- <div class="form-group"> -->
-    <input
-      type="text"
-      class="form-control"
-      id="firstName"
-      type="text"
-      formControlName="firstName"
-    />
-    <input
-      type="text"
-      class="form-control"
-      id="lastName"
-      type="text"
-      formControlName="lastName"
-    />
-    <input
-      type="text"
-      class="form-control"
-      id="avatar"
-      type="text"
-      formControlName="avatar"
-    />
-  </form>
-
-  <div class="form-group">
-    <div class="btn-layout">
-      <button class="" (click)="addUser()">ADD USER</button>
-    </div>
-  </div>
 </div>
