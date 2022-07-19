@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/modals/staff.modal';
+import { User } from 'src/app/modals/user.modal';
 import { UserServices } from 'src/app/users.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class AddUserComponent implements OnInit {
   public addUser(): void {
     this.userFormToSubmit = this.userForm.value;
     if (this.userForm.valid) {
-      this.usersService.addUser(this.userFormToSubmit).subscribe((data) => {
+      this.usersService.addUser(this.userFormToSubmit).subscribe(() => {
         this.router.navigateByUrl('');
       }),
         (err) => console.log(err);

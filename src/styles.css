@@ -27,6 +27,8 @@ button {
   background: #489dda;
   cursor: pointer;
 }
+
+/* Scroll bar styles */
 /* width */
 ::-webkit-scrollbar {
   width: 20px;

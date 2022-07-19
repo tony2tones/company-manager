@@ -46,7 +46,7 @@
             type="text"
             class="form-control"
             formControlName="phoneNumber"
-            name="staff"
+            name="phoneNumber"
             placeholder="Phone Number"
             value=""
           />
@@ -129,18 +129,18 @@
         </div>
         <div class="users-panel" *ngIf="selectedUsers.length">
           <h5>Selected users: {{ selectedUsers.length }}</h5>
-          <ng-container *ngFor="let staff of selectedUsers">
+          <ng-container *ngFor="let user of selectedUsers">
             <div class="user-list-item">
-              <ul [ngClass]="{ checked: staff?.checked }">
+              <ul [ngClass]="{ checked: user?.checked }">
                 <li>
-                  {{ staff.firstName }}
+                  {{ user.firstName }}
                 </li>
                 <li>
-                  {{ staff.lastName }}
+                  {{ user.lastName }}
                 </li>
                 <li>
                   <img
-                    src="../../../assets/avatars/avatar{{ staff.avatar }}.png"
+                    src="../../../assets/avatars/avatar{{ user.avatar }}.png"
                     alt=""
                   />
                 </li>

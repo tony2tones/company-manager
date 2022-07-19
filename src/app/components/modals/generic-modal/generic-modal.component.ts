@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./generic-modal.component.css']
 })
 export class GenericModalComponent implements OnInit {
+  // TODO
   @Input() title: String;
   // @Input() job: String;
   // @Input() bio: String;
