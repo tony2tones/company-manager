@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map } from 'rxjs/operators';
 import { Observable } from "rxjs";
 import { Office } from "./modals/office.modal";
-import { User } from "./modals/staff.modal";
+import { User } from "./modals/user.modal";
 @Injectable({
     providedIn: 'root'
 })

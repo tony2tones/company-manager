@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Office } from 'src/app/modals/office.modal';
-import { User } from 'src/app/modals/staff.modal';
+import { User } from 'src/app/modals/user.modal';
 import { OfficeServices } from 'src/app/service.service';
 
 @Component({

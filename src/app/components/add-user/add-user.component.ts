@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/modals/staff.modal';
+import { User } from 'src/app/modals/user.modal';
 import { UserServices } from 'src/app/users.service';
 
 @Component({

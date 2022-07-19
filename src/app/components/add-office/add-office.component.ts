@@ -27,11 +27,11 @@ export class AddOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: ['', [Validators.required]],
-      staff: []
+      users: []
     });
 
   }
-  get getStaff(): FormArray {
+  get getUsers(): FormArray {
     return this.officeProfileForm.get["users"] as FormArray;
   }
 
@@ -40,7 +40,7 @@ export class AddOfficeComponent implements OnInit {
     this.officeProfileForm.patchValue({
       colourScheme: colour
     });
-    this.officeProfileForm.controls.staff.patchValue([]);
+    this.officeProfileForm.controls.users.patchValue([]);
   }
 
   public onSubmit() {

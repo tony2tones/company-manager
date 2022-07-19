@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { User } from 'src/app/modals/staff.modal';
+import { User } from 'src/app/modals/user.modal';
 import { UserServices } from 'src/app/users.service';
 
 @Component({
@@ -35,12 +35,9 @@ export class UsersComponent implements OnInit {
   public ngOnInit(): void {
     this.usersService.getUsers().subscribe((data: User[]) => {
       this.userList = data;
-
       this.filteredUserList = this.userList.map((user, index) => {
         return Object.assign({checked: false},user);
       });
-    
-      console.log('check this out: ', this.filteredUserList);
     });
     this.searchName = this.createFormGroup();
     this.formSubscription.push(this.searchName.valueChanges.subscribe((this.onFilterChanges.bind(this))))
