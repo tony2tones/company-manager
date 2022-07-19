@@ -7,6 +7,6 @@ export class Office {
     email: string;
     officeCapacity: number;
     address: string;
-    user: User[];
+    users: User[];
     colourScheme: string;
 }

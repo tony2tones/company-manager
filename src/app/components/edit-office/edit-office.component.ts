@@ -97,7 +97,6 @@ export class EditOfficeComponent implements OnInit {
     this.editOfficeProfileForm.patchValue({
       colourScheme: colour
     });
-    console.log('details', this.colourHash);
   }
 
   public getOfficeInfo(): void {
@@ -122,7 +121,7 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public deleteOffice(): void {
-    this.officeService.deleteOffice(this.officeId).subscribe((data) => {
+    this.officeService.deleteOffice(this.officeId).subscribe(() => {
       this.router.navigateByUrl('');
     }),
       (error) => {
@@ -132,7 +131,7 @@ export class EditOfficeComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.editOfficeProfileForm.valid) {
-      this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
+      this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe(() => {
         this.router.navigate(['/']);
       }),
         (err) => console.log(err);

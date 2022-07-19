@@ -32,7 +32,6 @@ export class OfficeProfileComponent implements OnInit {
       this.officeId = id;
 
       if (this.officeId) {
-        console.log('this roomId', this.officeId);
         this.getOfficeInfo();
       }
     }),

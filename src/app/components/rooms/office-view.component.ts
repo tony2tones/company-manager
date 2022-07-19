@@ -21,8 +21,7 @@ export class OfficeViewComponent implements OnInit {
   }
 
   navtoOfficeProfile(id:string){
-
-
+    // TODO
   }
 
 }

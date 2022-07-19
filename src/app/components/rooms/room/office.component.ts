@@ -23,7 +23,7 @@ export class OfficeComponent implements OnInit {
 
   @Input() address: string = '';
 
-  @Input() staff: [] = [];
+  @Input() users: [] = [];
 
   @Input() menuToggle: boolean = false;
 

@@ -33,7 +33,7 @@ export class AddUserComponent implements OnInit {
   public addUser(): void {
     this.userFormToSubmit = this.userForm.value;
     if (this.userForm.valid) {
-      this.usersService.addUser(this.userFormToSubmit).subscribe((data) => {
+      this.usersService.addUser(this.userFormToSubmit).subscribe(() => {
         this.router.navigateByUrl('');
       }),
         (err) => console.log(err);
