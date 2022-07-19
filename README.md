@@ -5,6 +5,9 @@ and using MongDB as a backend you can run the mongoDB by entering the server cod
 
 Please note that there is a bit of limited functionality when trying to add users to the an Office, this is still in progress.
 
+However you are able to Create users
+You can create, Read, Update, Delete Offices vi the ui to update the mongoDB.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
