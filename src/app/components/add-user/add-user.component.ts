@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/modals/user.modal';
 import { UserServices } from 'src/app/users.service';
@@ -16,17 +16,17 @@ export class AddUserComponent implements OnInit {
 
   @Input() public roomId: string = '';
 
-  constructor(private usersService: UserServices, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private usersService: UserServices, private fb: FormBuilder, private router: Router) { }
 
   public ngOnInit(): void {
     this.createFormGroup();
   }
 
   public createFormGroup(): void {
-    this.userForm = this.formBuilder.group({
-      firstName: new FormControl(['']),
-      lastName: new FormControl(['']),
-      avatar: new FormControl(['']),
+    this.userForm = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      avatar: ['', [Validators.required]],
     });
   }
 

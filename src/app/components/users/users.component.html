@@ -33,7 +33,9 @@
       </ng-container>
     </form>
   </div>
-  <button type="submit" (click)="submit()" [disabled]="!selectedUsers.length">
+  <div *ngIf="usersAddBtn">
+  <button type="submit" (click)="submit()" [disabled]="!selectedUsers.length" >
     Add selected users
   </button>
+</div>
 </div>

@@ -64,11 +64,11 @@ export class EditOfficeComponent implements OnInit {
       staff: [],
     });
     this.userForm = this.fb.group({
-      _id: new FormControl('', [Validators.required]),
-      checked: new FormControl('', [Validators.required]),
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      avatar: new FormControl('', [Validators.required]),
+      _id: ['', [Validators.required]],
+      checked: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      avatar: ['', [Validators.required]],
     });
   }
   get getStaff(): FormArray {
