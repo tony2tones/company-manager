@@ -1,9 +1,9 @@
 <div class="container">
+  <div
+    class="colour-banner colour-banner-{{ colourHash }}"
+    [style.background-color]="colourHash"
+  ></div>
   <div class="content">
-    <div
-      class="colour-banner colour-banner-{{ colourHash }}"
-      [style.background-color]="colourHash"
-    ></div>
     <div class="edit-form-group">
       <h3 id="officeProfile">Edit office</h3>
       <form [formGroup]="editOfficeProfileForm">

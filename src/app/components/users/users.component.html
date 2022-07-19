@@ -12,7 +12,10 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <ng-container *ngFor="let staff of filteredUserList; let i = index">
         <div class="user-panel">
-          <ul (click)="onCheckboxChange(staff)" [ngClass]="{'checked': staff?.checked }">
+          <ul
+            (click)="onCheckboxChange(staff)"
+            [ngClass]="{ checked: staff?.checked }"
+          >
             <li>
               {{ staff.firstName }}
             </li>
@@ -20,7 +23,10 @@
               {{ staff.lastName }}
             </li>
             <li>
-              <img src="../../../assets/avatars/avatar{{staff.avatar}}.png" alt="">
+              <img
+                src="../../../assets/avatars/avatar{{ staff.avatar }}.png"
+                alt=""
+              />
             </li>
           </ul>
         </div>
@@ -29,5 +35,5 @@
   </div>
   <button type="submit" (click)="submit()" [disabled]="!selectedUsers.length">
     Add selected users
-  </button> 
+  </button>
 </div>

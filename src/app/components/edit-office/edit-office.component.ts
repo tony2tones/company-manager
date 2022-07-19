@@ -29,9 +29,9 @@ export class EditOfficeComponent implements OnInit {
   public staffList: FormGroup;
 
   public selectedOffice: Office;
-  
+
   public selectedUsers: User[] = [];
-  
+
   constructor(
     private officeService: OfficeServices,
     private fb: FormBuilder,
@@ -53,7 +53,7 @@ export class EditOfficeComponent implements OnInit {
     this.createFormGroup();
   }
 
-  createFormGroup() :void {
+  createFormGroup(): void {
     this.editOfficeProfileForm = this.fb.group({
       companyName: ['', Validators.required],
       phoneNumber: ['', Validators.required],
@@ -75,12 +75,13 @@ export class EditOfficeComponent implements OnInit {
     return this.editOfficeProfileForm.get["users"] as FormArray;
   }
 
-  public addUser() :void {
-    this.newUser = this.userForm.value;
-    let newArray = [];
-    this.currentStaffList.push(...newArray, this.newUser);
-    this.userForm.controls["users"].patchValue(this.currentStaffList);
-    console.log('Staff list ', this.editOfficeProfileForm);
+  public addUser(): void {
+    // TODO
+    // this.newUser = this.userForm.value;
+    // let newArray = [];
+    // this.currentStaffList.push(...newArray, this.newUser);
+    // this.userForm.controls["users"].patchValue(this.currentStaffList);
+    // console.log('Staff list ', this.editOfficeProfileForm);
   }
 
   public retrieveData(users: User[]): void {
@@ -91,7 +92,7 @@ export class EditOfficeComponent implements OnInit {
     // TODO
   }
 
-  public colourSelected(colour) :void {
+  public colourSelected(colour): void {
     this.colourHash = colour;
     this.editOfficeProfileForm.patchValue({
       colourScheme: colour
@@ -106,7 +107,7 @@ export class EditOfficeComponent implements OnInit {
     })
   }
 
-  public editOffice(office: Office) :void{
+  public editOffice(office: Office): void {
     this.colourHash = office.colourScheme;
     const editOffice = office[0];
     this.editOfficeProfileForm.patchValue({

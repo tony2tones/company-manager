@@ -24,13 +24,13 @@ export class OfficeProfileComponent implements OnInit {
 
   constructor(
     private officeService: OfficeServices,
-    private activeRoute: ActivatedRoute, private router : Router) { }
+    private activeRoute: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.activeRoute.params.subscribe((room) => {
       const id = room.roomId;
       this.officeId = id;
-      
+
       if (this.officeId) {
         console.log('this roomId', this.officeId);
         this.getOfficeInfo();
@@ -40,13 +40,11 @@ export class OfficeProfileComponent implements OnInit {
 
       }
   }
-  public navButton(){
+  public navButton(): void {
     this.router.navigate([`office-view/${this.officeId}`]);
   }
 
-  public editOffice($event) {
-    console.log(' this has been clicked ');
-    console.log($event, this.officeId);
+  public editOffice(): void {
     this.router.navigate([`office-view/edit-office/${this.officeId}`]);
   }
 
@@ -58,11 +56,11 @@ export class OfficeProfileComponent implements OnInit {
 
     })
   }
-  public getOfficebyId() {
-    
+  public getOfficebyId(): void {
+    // TODO
   }
 
-  public toggleMenu() {
+  public toggleMenu(): void {
     this.menuToggle = !this.menuToggle;
   }
 }

@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.usersService.getUsers().subscribe((data: User[]) => {
       this.userList = data;
 
@@ -64,20 +64,19 @@ export class UsersComponent implements OnInit {
       })
   }
 
-  public addToList() {
-    console.log('checked User list', this.selectedUsers);
+  public addToList(): void {
+    // TODO
   }
 
 
-  public onCheckboxChange(e) {
+  public onCheckboxChange(e): void {
     this.filteredUserList.filter(user => {
      if(user._id === e._id) user.checked = !user.checked;
     })
-    console.log('updated list? ', this.filteredUserList);
     this.selectedUsers = this.filteredUserList.filter((user) => user.checked);
   }
 
-  submit() {
+  public submit(): void {
     this.usersEmitter.emit(this.selectedUsers);
   }
 

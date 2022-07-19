@@ -11,33 +11,30 @@ import { UserServices } from 'src/app/users.service';
 })
 export class AddUserComponent implements OnInit {
   public userForm: FormGroup;
+
   public userFormToSubmit: User;
 
-  @Input() roomId: string = ''; 
+  @Input() public roomId: string = '';
 
   constructor(private usersService: UserServices, private formBuilder: FormBuilder, private router: Router) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.createFormGroup();
   }
 
-  createFormGroup() {
+  public createFormGroup(): void {
     this.userForm = this.formBuilder.group({
       firstName: new FormControl(['']),
       lastName: new FormControl(['']),
       avatar: new FormControl(['']),
     });
-
   }
-  
-  public addUser() {
+
+  public addUser(): void {
     this.userFormToSubmit = this.userForm.value;
-    console.log('Submitted forms current value ', this.userFormToSubmit);
     if (this.userForm.valid) {
-      // this.officeServices.updateOfficeUser(this.userForm.value, this.roomId).subscribe((data) => {
-        this.usersService.addUser(this.userFormToSubmit).subscribe((data) => {
-          console.log('did this work', data);
-          this.router.navigateByUrl('');
+      this.usersService.addUser(this.userFormToSubmit).subscribe((data) => {
+        this.router.navigateByUrl('');
       }),
         (err) => console.log(err);
     }

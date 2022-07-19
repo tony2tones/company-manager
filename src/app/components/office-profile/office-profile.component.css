@@ -1,49 +1,45 @@
-.container {
-}
 
 .content {
-    display: flex;
+  display: flex;
 }
 
 .color {
-    height: 20px;
-    width: 100%;
+  height: 10px;
+  width: 100%;
 }
 
-
 .color.colour-banner-FFBE0B {
-    background-color: #ffbe0b;
-  }
-  
-  .color.colour-banner-FF9B71 {
-    background-color: #ff9b71;
-  }
-  
-  .color.colour-banner-FB5607 {
-    background-color: #fb5607;
-  }
-  .color.colour-banner-97512C {
-    background-color: #97512c;
-  }
-  .color.colour-banner-DBBADD {
-    background-color: #dbbadd;
-  }
-  .color.colour-banner-FF006E {
-    background-color: #ff006e;
-  }
-  .color.colour-banner-A9F0D1 {
-    background-color: #a9f0d1;
-  }
-  .color.colour-banner-00B402 {
-    background-color: #00b402;
-  }
-  .color.colour-banner-489DDA {
-    background-color: #489dda;
-  }
-  .color.colour-banner-0072E8 {
-    background-color: #0072e8;
-  }
-  .color.colour-banner-8338EC {
-    background-color: #8338ec;
-  }
-  
+  background-color: #ffbe0b;
+}
+
+.color.colour-banner-FF9B71 {
+  background-color: #ff9b71;
+}
+
+.color.colour-banner-FB5607 {
+  background-color: #fb5607;
+}
+.color.colour-banner-97512C {
+  background-color: #97512c;
+}
+.color.colour-banner-DBBADD {
+  background-color: #dbbadd;
+}
+.color.colour-banner-FF006E {
+  background-color: #ff006e;
+}
+.color.colour-banner-A9F0D1 {
+  background-color: #a9f0d1;
+}
+.color.colour-banner-00B402 {
+  background-color: #00b402;
+}
+.color.colour-banner-489DDA {
+  background-color: #489dda;
+}
+.color.colour-banner-0072E8 {
+  background-color: #0072e8;
+}
+.color.colour-banner-8338EC {
+  background-color: #8338ec;
+}

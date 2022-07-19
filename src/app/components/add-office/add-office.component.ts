@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OfficeServices } from 'src/app/service.service';
 
@@ -26,10 +26,10 @@ export class AddOfficeComponent implements OnInit {
       officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      colourScheme: ['',[Validators.required]],
+      colourScheme: ['', [Validators.required]],
       staff: []
     });
-    
+
   }
   get getStaff(): FormArray {
     return this.officeProfileForm.get["users"] as FormArray;
