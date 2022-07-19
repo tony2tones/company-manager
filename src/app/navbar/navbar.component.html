@@ -1,11 +1,10 @@
 <nav class="navBar">
   <ul>
-    <li routerLink="/">
-      <a  active-class="active">Home</a>
+    <li [routerLink]='["/"]' [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"><a>Home</a>
     </li>
-    <li routerLink="add-new-office"><a  active-class="active">Add new Offices</a></li>
-    <li routerLink="add-new-user"><a  active-class="active">Add new User</a></li>
-    <li routerLink="view-user-list"><a  active-class="active">View Users</a></li>
+    <li [routerLink]='["add-new-office"]' routerLinkActive="active"><a>Add new Offices</a></li>
+    <li [routerLink]='["add-new-user"]' routerLinkActive="active" ><a>Add new User</a></li>
+    <li [routerLink]='["view-user-list"]' routerLinkActive="active" ><a>View Users</a></li>
   </ul>
 </nav>
 <hr />

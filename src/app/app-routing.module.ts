@@ -10,13 +10,13 @@ import { UsersComponent } from './components/users/users.component';
 
 
 const routes: Routes = [
-    { path: '', component: OfficeViewComponent },
-    { path: 'office-view', component: OfficeViewComponent },
-    { path: 'office-view/:roomId', component: OfficeProfileComponent },
-    { path: 'office-view/edit-office/:roomId', component: EditOfficeComponent },
-    { path: 'view-user-list', component: UsersComponent },
     { path: 'add-new-office', component: AddOfficeComponent },
     { path: 'add-new-user', component: AddUserComponent },
+    { path: 'office-view/edit-office/:roomId', component: EditOfficeComponent },
+    { path: 'view-user-list', component: UsersComponent },
+    { path: 'office-view', component: OfficeViewComponent },
+    { path: 'office-view/:roomId', component: OfficeProfileComponent },
+    { path: '', component: OfficeViewComponent },
 ];
  
 @NgModule({
