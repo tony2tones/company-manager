@@ -127,10 +127,10 @@
             ></div>
           </div>
         </div>
-        <div *ngIf="selectedUsers.length">
+        <div class="users-panel" *ngIf="selectedUsers.length">
           <h5>Selected users: {{ selectedUsers.length }}</h5>
           <ng-container *ngFor="let staff of selectedUsers">
-            <div class="user--panel">
+            <div class="user-list-item">
               <ul [ngClass]="{ checked: staff?.checked }">
                 <li>
                   {{ staff.firstName }}

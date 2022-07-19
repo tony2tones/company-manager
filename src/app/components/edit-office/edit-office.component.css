@@ -204,7 +204,11 @@ button {
 
 }
 
-.user--panel > ul {
+.users-panel {
+  padding-bottom: 4.5rem;
+}
+
+.user-list-item > ul {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
@@ -213,13 +217,13 @@ button {
   padding: 1.5rem;
 }
 
-.user--panel > ul.checked {
+.user-list-item > ul.checked {
   background-color: #90c5f0;
 }
-.user--panel > ul.checked:hover {
+.user-list-item > ul.checked:hover {
   background-color: #71a2ca;
 }
-.user--panel > ul:hover {
+.user-list-item > ul:hover {
   cursor: pointer;
   background-color: #90bee3;
 }
