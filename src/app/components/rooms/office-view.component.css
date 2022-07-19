@@ -1,3 +1,7 @@
+.container {
+    margin:auto;
+}
+
 .content {
     display: flex;
     flex-wrap: wrap;

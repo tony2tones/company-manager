@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/modals/user.modal';
@@ -12,6 +12,8 @@ import { UserServices } from 'src/app/users.service';
 export class UsersComponent implements OnInit {
   @Output() usersEmitter = new EventEmitter<User[]>();
 
+  @Input() usersAddBtn: boolean = false;
+
   public searchName: FormGroup;
 
   public form: FormGroup;
@@ -22,8 +24,8 @@ export class UsersComponent implements OnInit {
 
   public userList: User[] = [];
 
-  public filteredUserList:User[] = [];
-  
+  public filteredUserList: User[] = [];
+
   public selectedUsers: User[] = [];
 
   constructor(private usersService: UserServices, private fb: FormBuilder) {
@@ -36,7 +38,7 @@ export class UsersComponent implements OnInit {
     this.usersService.getUsers().subscribe((data: User[]) => {
       this.userList = data;
       this.filteredUserList = this.userList.map((user, index) => {
-        return Object.assign({checked: false},user);
+        return Object.assign({ checked: false }, user);
       });
     });
     this.searchName = this.createFormGroup();
@@ -68,7 +70,7 @@ export class UsersComponent implements OnInit {
 
   public onCheckboxChange(e): void {
     this.filteredUserList.filter(user => {
-     if(user._id === e._id) user.checked = !user.checked;
+      if (user._id === e._id) user.checked = !user.checked;
     })
     this.selectedUsers = this.filteredUserList.filter((user) => user.checked);
   }

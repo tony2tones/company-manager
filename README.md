@@ -1,6 +1,9 @@
 # Specno
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+and using MongDB as a backend you can run the mongoDB by entering the server code file and through the command line run 'nodemon', this will spin up the mongoDB database.
+
+Please note that there is a bit of limited functionality when trying to add users to the an Office, this is still in progress.
 
 ## Development server
 
