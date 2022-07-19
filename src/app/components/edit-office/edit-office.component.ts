@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Office } from 'src/app/modals/office.modal';
 import { User } from 'src/app/modals/staff.modal';
 import { OfficeServices } from 'src/app/service.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-edit-office',
@@ -38,7 +37,6 @@ export class EditOfficeComponent implements OnInit {
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -119,7 +117,6 @@ export class EditOfficeComponent implements OnInit {
       email: editOffice.email,
       colourScheme: editOffice.colourScheme,
       staff: editOffice.staff,
-      // users: editOffice.users,
     })
   }
 
@@ -133,7 +130,6 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    console.log('VALID', this.editOfficeProfileForm.valid)
     if (this.editOfficeProfileForm.valid) {
       this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe((data) => {
         this.router.navigate(['/']);
