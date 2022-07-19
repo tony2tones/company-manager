@@ -2,27 +2,11 @@
 .content {
   display: flex;
   margin:auto 25%;
-  /* flex-direction: column; */
 }
 
 #officeProfile {
   text-align: center;
   font-size: 21px;
-}
-
-form {
-  font-family: sans-serif;
-  margin-left: 135px;
-  margin-top: 35px;
-}
-
-.form-group {
-  /* text-align: center; */
-  /* width: 340px;
-  height: 48px;
-  border-radius: 8px;
-  padding: 12px, 16px, 12px, 16px; */
-  /* background: #FFFFFF; */
 }
 
 .form-control {
@@ -96,7 +80,6 @@ form {
 .colour-11 {
   background-color: #8338EC;
 }
-
 
 button {
   width: 232px;

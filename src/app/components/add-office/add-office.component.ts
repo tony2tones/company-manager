@@ -26,28 +26,29 @@ export class AddOfficeComponent implements OnInit {
       officeCapacity: [0, Validators.required],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      colourScheme: [''],
+      colourScheme: ['',[Validators.required]],
       staff: []
     });
-    this.officeProfileForm.controls.staff.patchValue([]);
+    
   }
   get getStaff(): FormArray {
     return this.officeProfileForm.get["users"] as FormArray;
   }
-
 
   public colourSelected(colour: string) {
     this.colourMatcher = colour;
     this.officeProfileForm.patchValue({
       colourScheme: colour
     });
+    this.officeProfileForm.controls.staff.patchValue([]);
   }
 
   public onSubmit() {
+    if (this.officeProfileForm.valid) {
       this.officeService.addOffice(this.officeProfileForm.value).subscribe(() => {
         this.router.navigateByUrl('');
       }),
         (err) => console.log(err);
+    }
   }
-
 }

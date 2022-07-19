@@ -2,7 +2,7 @@
   <form [formGroup]="officeProfileForm">
     <h1 id="officeProfile">New office</h1>
     <div class="form-group">
-      <label for=""></label>
+      <label for="companyName"></label>
       <input
         type="text"
         class="form-control"
@@ -120,6 +120,7 @@
 
     <div class="form-group">
       <button
+      [disabled]="!officeProfileForm.valid"
         (click)="onSubmit()"
       >
         ADD OFFICE
