@@ -1,8 +1,8 @@
 <div class="content">
   <form [formGroup]="officeProfileForm">
-    <h1 id="officeProfile">New office</h1>
+    <h2 id="officeProfile">New office</h2>
     <div class="form-group">
-      <label for=""></label>
+      <label for="companyName"></label>
       <input
         type="text"
         class="form-control"
@@ -40,7 +40,7 @@
         type="text"
         class="form-control"
         formControlName="phoneNumber"
-        name="staff"
+        name="phoneNumber"
         placeholder="Phone Number"
         value=""
       />
@@ -119,45 +119,9 @@
     </div>
 
     <div class="form-group">
-      <button
-        class=""
-        [disabled]="!officeProfileForm.valid"
-        (click)="onSubmit()"
-      >
+      <button [disabled]="!officeProfileForm.valid" (click)="onSubmit()">
         ADD OFFICE
       </button>
     </div>
   </form>
-
-  <form [formGroup]="userForm">
-    <!-- <div *ngFor="let staff of userForm"> -->
-    <!-- <div class="form-group"> -->
-    <input
-      type="text"
-      class="form-control"
-      id="firstName"
-      type="text"
-      formControlName="firstName"
-    />
-    <input
-      type="text"
-      class="form-control"
-      id="lastName"
-      type="text"
-      formControlName="lastName"
-    />
-    <input
-      type="text"
-      class="form-control"
-      id="avatar"
-      type="text"
-      formControlName="avatar"
-    />
-  </form>
-
-  <div class="form-group">
-    <div class="btn-layout">
-      <button class="" (click)="addUser()">ADD USER</button>
-    </div>
-  </div>
 </div>

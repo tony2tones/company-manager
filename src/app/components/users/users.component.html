@@ -2,17 +2,20 @@
   <div class="search-field">
     <form [formGroup]="searchName">
       <div class="form-group">
-        <label for="searchName">Filter users</label>
+        <h3>Filter users</h3>
         <input type="text" class="form-control" formControlName="searchterm" />
       </div>
     </form>
   </div>
 
-  <div class="user--container">
+  <div class="user-container">
     <form [formGroup]="form" (ngSubmit)="submit()">
       <ng-container *ngFor="let staff of filteredUserList; let i = index">
-        <div class="user--panel">
-          <ul (click)="onCheckboxChange(staff)" [ngClass]="{'checked': staff?.checked }">
+        <div class="user-panel">
+          <ul
+            (click)="onCheckboxChange(staff)"
+            [ngClass]="{ checked: staff?.checked }"
+          >
             <li>
               {{ staff.firstName }}
             </li>
@@ -20,14 +23,17 @@
               {{ staff.lastName }}
             </li>
             <li>
-              <img src="../../../assets/avatars/avatar{{staff.avatar}}.png" alt="">
+              <img
+                src="../../../assets/avatars/avatar{{ staff.avatar }}.png"
+                alt=""
+              />
             </li>
           </ul>
         </div>
       </ng-container>
     </form>
   </div>
-  <button class="btn btn-primary" type="submit" (click)="submit()" [disabled]="!selectedUsers.length">
+  <button type="submit" (click)="submit()" [disabled]="!selectedUsers.length">
     Add selected users
-  </button> 
+  </button>
 </div>
