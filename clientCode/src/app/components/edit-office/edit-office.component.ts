@@ -61,14 +61,7 @@ export class EditOfficeComponent implements OnInit {
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       colourScheme: [''],
-      staff: [],
-    });
-    this.userForm = this.fb.group({
-      _id: ['', [Validators.required]],
-      checked: ['', [Validators.required]],
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      avatar: ['', [Validators.required]],
+      users: [],
     });
   }
   get getStaff(): FormArray {
@@ -116,7 +109,7 @@ export class EditOfficeComponent implements OnInit {
       address: editOffice.address,
       email: editOffice.email,
       colourScheme: editOffice.colourScheme,
-      staff: editOffice.staff,
+      users: editOffice.users,
     })
   }
 
@@ -130,8 +123,11 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    this.selectedOffice = this.editOfficeProfileForm.value;
+    this.selectedOffice.users = this.selectedUsers;
+    console.log(this.selectedOffice);
     if (this.editOfficeProfileForm.valid) {
-      this.officeService.updateOffice(this.editOfficeProfileForm.value, this.officeId).subscribe(() => {
+      this.officeService.updateOffice(this.selectedOffice, this.officeId).subscribe(() => {
         this.router.navigate(['/']);
       }),
         (err) => console.log(err);
