@@ -1,5 +1,10 @@
 .content {
-  margin: auto 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1ch;
+  text-align: center;
 }
 
 .form-control {
@@ -9,7 +14,6 @@
   border: none;
   border-radius: 3px;
 }
-
 
 .colour-scheme {
   margin-top:20px;
