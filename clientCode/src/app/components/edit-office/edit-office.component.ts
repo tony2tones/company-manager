@@ -121,10 +121,6 @@ export class EditOfficeComponent implements OnInit {
       }
   }
 
-  public ngDoCheck() {
-    console.log('THIS IS THE BUTTON STATUS YA? ', this.buttonStatus);
-  }
-
   public onSubmit(): void {
     this.selectedOffice = this.editOfficeProfileForm.value;
     this.selectedOffice.users = this.selectedUsers;
