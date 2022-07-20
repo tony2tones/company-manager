@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Office } from 'src/app/modals/office.modal';
 import { User } from 'src/app/modals/user.modal';
@@ -11,6 +11,8 @@ import { OfficeServices } from 'src/app/service.service';
   styleUrls: ['./edit-office.component.css']
 })
 export class EditOfficeComponent implements OnInit {
+
+  public showUsersList:boolean = false;
 
   public editOfficeProfileForm: FormGroup;
 
@@ -68,13 +70,9 @@ export class EditOfficeComponent implements OnInit {
     return this.editOfficeProfileForm.get["users"] as FormArray;
   }
 
-  public addUser(): void {
-    // TODO
-    // this.newUser = this.userForm.value;
-    // let newArray = [];
-    // this.currentStaffList.push(...newArray, this.newUser);
-    // this.userForm.controls["users"].patchValue(this.currentStaffList);
-    // console.log('Staff list ', this.editOfficeProfileForm);
+  public addUsers(): void {
+    this.showUsersList = !this.showUsersList;
+
   }
 
   public retrieveData(users: User[]): void {
@@ -94,7 +92,6 @@ export class EditOfficeComponent implements OnInit {
 
   public getOfficeInfo(): void {
     this.officeService.getOfficeById(this.officeId).subscribe((editOfficeData:Office) => {
-      console.log('test', editOfficeData);
       this.editOffice(editOfficeData);
       this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
     })
@@ -122,6 +119,10 @@ export class EditOfficeComponent implements OnInit {
       (error) => {
         console.log(error)
       }
+  }
+
+  public ngDoCheck() {
+    console.log('THIS IS THE BUTTON STATUS YA? ', this.buttonStatus);
   }
 
   public onSubmit(): void {

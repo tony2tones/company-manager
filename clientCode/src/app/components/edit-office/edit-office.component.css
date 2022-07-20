@@ -215,6 +215,11 @@ button {
   padding-bottom: 4.5rem;
 }
 
+.no-users.users-panel  {
+  padding-bottom: 4.5rem;
+  height: 200px;
+}
+
 .user-list-item > ul {
   display: flex;
   justify-content: space-around;

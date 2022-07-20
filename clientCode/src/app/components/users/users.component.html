@@ -2,8 +2,13 @@
   <div class="search-field">
     <form [formGroup]="searchName">
       <div>
-        <h3>Filter users</h3>
-        <input type="text" class="form-control" formControlName="searchterm" placeholder="filter by name" />
+        <h3>{{ titleText }}</h3>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="searchterm"
+          placeholder="filter by name"
+        />
       </div>
     </form>
   </div>
@@ -34,8 +39,8 @@
     </form>
   </div>
   <div *ngIf="usersAddBtn">
-  <button type="submit" (click)="submit()" [disabled]="!selectedUsers.length" >
-    Add selected users
-  </button>
-</div>
+    <button type="submit" (click)="submit()" [disabled]="!selectedUsers.length">
+      Add selected users 
+    </button>
+  </div>
 </div>

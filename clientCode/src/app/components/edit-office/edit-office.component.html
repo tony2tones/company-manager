@@ -126,12 +126,23 @@
               (click)="colourSelected('#8338EC')"
             ></div>
           </div>
+
+          <div
+            class="no-users"
+            *ngIf="!selectedUsers?.length && !showUsersList"
+          >
+            THERE ARE NO USERS FOR THIS OFFICE TO ADD SELECT THE UPDATE USERS
+            LIST BUTTON.
+          </div>
         </div>
-        <div class="users-panel" *ngIf="selectedUsers?.length">
-          <h5>Selected users: {{ selectedUsers.length }}</h5>
+        <div
+          class="users-panel"
+          *ngIf="selectedUsers?.length && !showUsersList"
+        >
+          <h5>Current users in office: {{ selectedUsers.length }}</h5>
           <ng-container *ngFor="let user of selectedUsers">
-            <div class="user-list-item">
-              <ul [ngClass]="{ checked: user?.checked }">
+            <div id="user-list" class="user-list-item">
+              <ul>
                 <li>
                   {{ user.firstName }}
                 </li>
@@ -150,32 +161,25 @@
         </div>
       </form>
     </div>
-    <div *ngIf="!selectedUsers.length">
+    <div *ngIf="showUsersList">
       <app-users
         (usersEmitter)="retrieveData($event)"
         [usersAddBtn]="true"
+        [titleText]="'Select Users'"
       ></app-users>
     </div>
   </div>
 
   <div class="footer-panel">
     <div class="btn-layout">
-      <button
-        class=""
-        [disabled]="!editOfficeProfileForm.valid"
-        (click)="onSubmit()"
-      >
+      <button [disabled]="!editOfficeProfileForm.valid" (click)="onSubmit()">
         UPDATE OFFICE
       </button>
+      <button (click)="deleteOffice()">DELETE OFFICE</button>
       <button
-        class=""
-        [disabled]="!editOfficeProfileForm.valid"
-        (click)="deleteOffice()"
+        (click)="addUsers()"
       >
-        DELETE OFFICE
-      </button>
-      <button class="" [disabled]="!selectedUsers.length" (click)="addUsers()">
-        UPDATE USER
+        UPDATE USERS LIST
       </button>
     </div>
   </div>
