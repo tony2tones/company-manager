@@ -3,8 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 and using MongDB as a backend you can run the mongoDB by entering the server code file and through the command line run 'nodemon', this will spin up the mongoDB database.
 
-Please note that there is a bit of limited functionality when trying to add users to the an Office, this is still in progress, it does work but is buggy.
-
+Please note that there is UI needs a bit of work but now you can successfully add users to an office 
+be sure to follow the steps
+select the `UPDATE USERS LIST`
+select users from said list and select the `ADD SELECTED USERS`
 However you are able to Create users
 You can create, Read, Update, Delete Offices vi the ui to update the mongoDB.
 
