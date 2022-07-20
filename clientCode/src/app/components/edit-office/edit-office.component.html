@@ -127,7 +127,7 @@
             ></div>
           </div>
         </div>
-        <div class="users-panel" *ngIf="selectedUsers.length">
+        <div class="users-panel" *ngIf="selectedUsers?.length">
           <h5>Selected users: {{ selectedUsers.length }}</h5>
           <ng-container *ngFor="let user of selectedUsers">
             <div class="user-list-item">
@@ -150,8 +150,12 @@
         </div>
       </form>
     </div>
-
-    <app-users (usersEmitter)="retrieveData($event)" [usersAddBtn]="true"></app-users>
+    <div *ngIf="!selectedUsers.length">
+      <app-users
+        (usersEmitter)="retrieveData($event)"
+        [usersAddBtn]="true"
+      ></app-users>
+    </div>
   </div>
 
   <div class="footer-panel">
@@ -169,6 +173,9 @@
         (click)="deleteOffice()"
       >
         DELETE OFFICE
+      </button>
+      <button class="" [disabled]="!selectedUsers.length" (click)="addUsers()">
+        UPDATE USER
       </button>
     </div>
   </div>

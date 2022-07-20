@@ -93,15 +93,18 @@ export class EditOfficeComponent implements OnInit {
   }
 
   public getOfficeInfo(): void {
-    this.officeService.getOfficeById(this.officeId).subscribe((formData) => {
-      this.editOffice(formData);
+    this.officeService.getOfficeById(this.officeId).subscribe((editOfficeData:Office) => {
+      console.log('test', editOfficeData);
+      this.editOffice(editOfficeData);
       this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
     })
   }
 
   public editOffice(office: Office): void {
     this.colourHash = office.colourScheme;
+    const usersList = office[0].users; 
     const editOffice = office[0];
+    this.selectedUsers = usersList;
     this.editOfficeProfileForm.patchValue({
       companyName: editOffice.companyName,
       phoneNumber: editOffice.phoneNumber,
@@ -109,7 +112,6 @@ export class EditOfficeComponent implements OnInit {
       address: editOffice.address,
       email: editOffice.email,
       colourScheme: editOffice.colourScheme,
-      users: editOffice.users,
     })
   }
 
