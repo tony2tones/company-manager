@@ -14,6 +14,8 @@ export class UsersComponent implements OnInit {
 
   @Input() usersAddBtn: boolean = false;
 
+  @Input() titleText: string = 'Filter users';
+
   public searchName: FormGroup;
 
   public form: FormGroup;
@@ -63,8 +65,8 @@ export class UsersComponent implements OnInit {
       })
   }
 
-  public addToList(): void {
-    // TODO
+  public resetCheckList(): void {
+      this.filteredUserList.map((user) => user.checked = false);
   }
 
 
@@ -77,6 +79,7 @@ export class UsersComponent implements OnInit {
 
   public submit(): void {
     this.usersEmitter.emit(this.selectedUsers);
+    this.resetCheckList();
   }
 
 }
