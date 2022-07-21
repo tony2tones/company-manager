@@ -11,10 +11,14 @@ import { UserServices } from 'src/app/users.service';
 })
 export class UsersComponent implements OnInit {
   @Output() usersEmitter = new EventEmitter<User[]>();
+  
+  @Output() btnSelected = new EventEmitter<boolean>();
 
   @Input() usersAddBtn: boolean = false;
 
   @Input() titleText: string = 'Filter users';
+
+  public isSelected: boolean = true;
 
   public searchName: FormGroup;
 
@@ -79,6 +83,7 @@ export class UsersComponent implements OnInit {
 
   public submit(): void {
     this.usersEmitter.emit(this.selectedUsers);
+    this.btnSelected.emit(this.isSelected);
     this.resetCheckList();
   }
 

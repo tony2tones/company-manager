@@ -14,6 +14,8 @@ export class EditOfficeComponent implements OnInit {
 
   public showUsersList:boolean = false;
 
+  public buttonStatus: boolean = false;
+
   public editOfficeProfileForm: FormGroup;
 
   public userForm: FormGroup;
@@ -72,11 +74,13 @@ export class EditOfficeComponent implements OnInit {
 
   public addUsers(): void {
     this.showUsersList = !this.showUsersList;
+    this.buttonStatus = true;
 
   }
 
   public retrieveData(users: User[]): void {
     this.selectedUsers = users;
+    this.buttonStatus = false;
   }
 
   public deleteUser(lessonIndex: number): void {
@@ -95,6 +99,10 @@ export class EditOfficeComponent implements OnInit {
       this.editOffice(editOfficeData);
       this.colourHash = this.editOfficeProfileForm.controls['colourScheme'].value;
     })
+  }
+
+  public usersAdded($event) {
+    this.buttonStatus = false;
   }
 
   public editOffice(office: Office): void {

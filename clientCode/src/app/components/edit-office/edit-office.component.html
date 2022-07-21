@@ -164,6 +164,7 @@
     <div *ngIf="showUsersList">
       <app-users
         (usersEmitter)="retrieveData($event)"
+        (btnSelected)="usersAdded($event)"
         [usersAddBtn]="true"
         [titleText]="'Select Users'"
       ></app-users>
@@ -177,6 +178,7 @@
       </button>
       <button (click)="deleteOffice()">DELETE OFFICE</button>
       <button
+        [disabled]="buttonStatus"
         (click)="addUsers()"
       >
         UPDATE USERS LIST
