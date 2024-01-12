@@ -15,6 +15,14 @@
   border-radius: 3px;
 }
 
+.flex-this {
+  display: flex;
+}
+
+.svg-adjust {
+  padding-top: 14px;
+}
+
 .colour-scheme {
   margin-top: 20px;
   display: flex;

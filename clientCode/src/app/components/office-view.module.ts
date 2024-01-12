@@ -13,6 +13,10 @@ import { OfficeProfileComponent } from './office-profile/office-profile.componen
 import { GenericModalComponent } from './modals/generic-modal/generic-modal.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UsersComponent } from './users/users.component';
+import { SvgTelephoneComponent } from './svgs/svg-telephone/svg-telephone.component';
+import { SvgEnvolpeComponent } from './svgs/svg-envolpe/svg-envolpe.component';
+import { SvgAddressComponent } from './svgs/svg-address/svg-address.component';
+import { SvgUserComponent } from './svgs/svg-user/svg-user.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { UsersComponent } from './users/users.component';
     GenericModalComponent,
     AddUserComponent,
     UsersComponent,
+    SvgTelephoneComponent,
+    SvgEnvolpeComponent,
+    SvgAddressComponent,
+    SvgUserComponent,
     
   ],
   imports: [

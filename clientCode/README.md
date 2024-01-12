@@ -37,3 +37,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Updates 
 
 the adding users to an office is now working, still some bugs to iron out.
+
+if you are using docker use the following command

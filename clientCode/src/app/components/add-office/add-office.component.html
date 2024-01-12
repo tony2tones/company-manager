@@ -1,7 +1,8 @@
 <div class="content">
   <form [formGroup]="officeProfileForm">
-    <h2>New office</h2>
-    <div class="form-group">
+    <h2>Add new office</h2>
+    <div class="form-group flex-this">
+      <div class="svg-adjust"><app-svg-user></app-svg-user></div>
       <label for="companyName"></label>
       <input
         type="text"
@@ -12,7 +13,8 @@
         value=""
       />
     </div>
-    <div class="form-group">
+    <div class="form-group flex-this">
+      <div class="svg-adjust"><app-svg-address></app-svg-address></div>
       <label for=""></label>
       <input
         type="text"
@@ -23,7 +25,8 @@
         value=""
       />
     </div>
-    <div class="form-group">
+    <div class="form-group flex-this">
+      <div class="svg-adjust"><app-svg-envolpe></app-svg-envolpe></div>
       <label for=""></label>
       <input
         type="text"
@@ -34,7 +37,9 @@
         value=""
       />
     </div>
-    <div class="form-group">
+    <div class="form-group flex-this">
+      <div class="svg-adjust"><app-svg-telephone></app-svg-telephone></div>
+      
       <label for=""></label>
       <input
         type="text"
@@ -45,7 +50,7 @@
         value=""
       />
     </div>
-    <div class="form-group">
+    <div class="form-group flex-this">
       <label for=""></label>
       <input
         type="number"
